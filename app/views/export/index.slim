@@ -1,0 +1,4 @@
+#logout_link
+  = link_to("Not #{@wanikani_user["username"]}?", '/logout', method: :delete)
+
+= @wanikani_user.inspect
