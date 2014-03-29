@@ -2,9 +2,10 @@ doctype html
 html
   head
     title WaniKani to Anki Exporter
-    = stylesheet_link_tag 'bootstrap.min'
+    = stylesheet_link_tag 'bootstrap.min', 'wkanki'
     = javascript_include_tag 'jquery','jquery-ujs', 'bootstrap.min'
     = yield_content :include
 
   body
-    = yield
+    .container
+      = yield

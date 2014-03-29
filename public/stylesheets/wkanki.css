@@ -1,0 +1,11 @@
+.home {
+  padding-top: 100px;
+}
+
+.home h1 {
+  text-align: center;
+}
+
+.home #api_key_form p {
+  text-align: center;
+}
