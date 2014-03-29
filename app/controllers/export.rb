@@ -1,5 +1,5 @@
 Wkanki::App.controllers :export do
-  get :index, map: '/export' do
+  get :index do
     redirect url(:home, :index) if session[:wanikani_api_key].blank?
 
     Wanikani.api_key = session[:wanikani_api_key]
