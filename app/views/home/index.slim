@@ -1,0 +1,7 @@
+h1 WaniKani to Anki exporter
+
+#api_key_form
+  p Please enter your WaniKani API key
+  = form_tag '' do
+    = text_field_tag :wanikani_api_key, placeholder: "WaniKani API Key"
+    = submit_tag "Let's Go!"

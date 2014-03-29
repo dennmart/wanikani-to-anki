@@ -1,8 +1,8 @@
 module Wkanki
   class App < Padrino::Application
     register Padrino::Rendering
-    register Padrino::Mailer
     register Padrino::Helpers
+    #register Padrino::Mailer
 
     enable :sessions
 
