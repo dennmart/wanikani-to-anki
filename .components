@@ -1,0 +1,9 @@
+---
+:orm: none
+:test: rspec
+:mock: none
+:script: jquery
+:renderer: slim
+:stylesheet: none
+:namespace: Wkanki
+:migration_format: number
