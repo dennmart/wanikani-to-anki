@@ -1,7 +1,5 @@
-# Helper methods defined here can be accessed in any controller or view in the application
-
 Wkanki::App.helpers do
-  # def simple_helper_method
-  #  ...
-  # end
+  def set_api_key(api_key)
+    Wanikani.api_key = api_key
+  end
 end
