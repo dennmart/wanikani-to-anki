@@ -2,9 +2,9 @@ module Wkanki
   class App < Padrino::Application
     register Padrino::Rendering
     register Padrino::Helpers
-    #register Padrino::Mailer
-
     enable :sessions
+
+    set :protect_from_csrf, false
 
     ##
     # Caching support.
