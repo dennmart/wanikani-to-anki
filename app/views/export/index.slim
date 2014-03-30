@@ -1,4 +1,20 @@
-#logout_link
-  = link_to("Not #{@wanikani_user["username"]}?", '/logout', method: :delete)
+.export
+  #user_image
+    img src="http://www.gravatar.com/avatar/#{@wanikani_user["gravatar"]}?s=200"
 
-= @wanikani_user.inspect
+  #welcome_message
+    p Hi, #{@wanikani_user["username"]}!
+    p
+      small= link_to("(Not #{@wanikani_user["username"]}?)", '/logout', method: :delete)
+
+  - if flash[:error]
+      #login_error.alert.alert-danger= flash[:error]
+
+  #export_types
+    h3 Choose which type of Anki deck you want to generate from your WaniKani account
+
+    .row
+      .col-md-8
+        strong Critical Items
+      .col-md-4
+        = link_to("Generate Anki Deck", '/export/generate/critical')
