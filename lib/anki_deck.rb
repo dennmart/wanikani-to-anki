@@ -12,12 +12,14 @@ class AnkiDeck
 
   private
 
+  def converter
+    @converter ||= AnkiDeck::Converter.new
+  end
+
   def critical
     percentage = self.argument || 75
     critical_items = Wanikani::CriticalItems.critical(percentage.to_i)
     return nil if critical_items.empty?
-
-    converter = AnkiDeck::Converter.new
     converter.critical_items_to_text(critical_items)
   end
 
@@ -25,8 +27,6 @@ class AnkiDeck
     level = 18
     kanji = Wanikani::Level.kanji(level)
     return nil if kanji.empty?
-
-    converter = AnkiDeck::Converter.new
     converter.kanji_to_text(kanji)
   end
 
