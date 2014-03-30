@@ -1,5 +1,5 @@
 class AnkiDeck
-  attr_accessor :type
+  attr_accessor :type, :argument
 
   def initialize(type, argument = nil)
     @type = type
@@ -13,19 +13,11 @@ class AnkiDeck
   private
 
   def critical
-    critical_items = Wanikani::CriticalItems.critical(85)
+    percentage = self.argument || 75
+    critical_items = Wanikani::CriticalItems.critical(percentage.to_i)
     return nil if critical_items.empty?
 
-    critical_items.map do |item|
-      if item["type"] == "kanji"
-        "#{item["character"]}; #{item[item["important_reading"]]} - #{item["meaning"]}"
-      elsif item["type"] == "vocabulary"
-        "#{item["character"]}; #{item["kana"]} - #{item["meaning"]}"
-      elsif item["type"] == "radical"
-        # TODO: How to deal with radicals with images
-        next if item["character"].nil?
-        "#{item["character"]}; #{item["meaning"]}"
-      end
-    end.compact.join("\n")
+    converter = AnkiDeck::Converter.new
+    converter.critical_items_to_text(critical_items)
   end
 end
