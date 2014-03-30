@@ -8,4 +8,18 @@ Wkanki::App.controllers :export do
     @wanikani_user = Wanikani::User.information
     render 'export/index'
   end
+
+  get :generate, map: '/export/generate/:deck_type' do
+    generator = AnkiDeck.new(params[:deck_type])
+    deck = generator.generate_deck
+
+    if deck.nil?
+      flash[:error] = "There were no items to export! Try changing the parameters for the deck, or try exporting a different deck."
+      redirect url(:export, :index)
+    else
+      content_type 'text/plain', charset: 'utf-8'
+      attachment "#{params[:deck_type]}.txt"
+      deck
+    end
+  end
 end
