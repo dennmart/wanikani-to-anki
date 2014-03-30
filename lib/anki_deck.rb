@@ -20,4 +20,8 @@ class AnkiDeck
     converter = AnkiDeck::Converter.new
     converter.critical_items_to_text(critical_items)
   end
+
+  def method_missing(method)
+    return nil
+  end
 end
