@@ -24,9 +24,9 @@ describe "ExportController" do
     let(:empty_deck) { double(generate_deck: nil) }
     let(:populated_deck) { double(generate_deck: "了; りょう - finish, complete, end") }
 
-    it "creates a new instance of AnkiDeck with the deck_type parameters and percentage" do
+    it "creates a new instance of AnkiDeck with the deck_type parameters and optional argument" do
       AnkiDeck.should_receive(:new).with("critical", "50").and_return(empty_deck)
-      post "/export/generate", deck_type: "critical", percentage: 50
+      post "/export/generate", deck_type: "critical", argument: 50
     end
 
     it "calls AnkiDeck#generate_deck with the created AnkiDeck object" do

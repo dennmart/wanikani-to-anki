@@ -1,0 +1,8 @@
+.row
+  = form_tag '/export/generate', role: "form", class: "form-inline" do
+    .col-md-4
+      strong Kanji
+    .col-md-4 All Levels
+    .col-md-4
+      = hidden_field_tag "deck_type", value: "kanji"
+      = submit_tag "Generate Anki Deck for Kanji", class: "btn btn-default"

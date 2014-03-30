@@ -10,7 +10,7 @@ Wkanki::App.controllers :export do
   end
 
   post :generate do
-    generator = AnkiDeck.new(params[:deck_type], params[:percentage])
+    generator = AnkiDeck.new(params[:deck_type], params[:argument])
     deck = generator.generate_deck
 
     if deck.nil?

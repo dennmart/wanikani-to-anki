@@ -21,6 +21,15 @@ class AnkiDeck
     converter.critical_items_to_text(critical_items)
   end
 
+  def kanji
+    level = 18
+    kanji = Wanikani::Level.kanji(level)
+    return nil if kanji.empty?
+
+    converter = AnkiDeck::Converter.new
+    converter.kanji_to_text(kanji)
+  end
+
   def method_missing(method)
     return nil
   end

@@ -3,6 +3,10 @@ class AnkiDeck::Converter
     items.map { |item| self.send("#{item["type"]}_type_to_string", item) }.compact.join("\n")
   end
 
+  def kanji_to_text(items)
+    items.map { |item| kanji_type_to_string(item) }.compact.join("\n")
+  end
+
   private
 
   def kanji_type_to_string(item)
