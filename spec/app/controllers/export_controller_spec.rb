@@ -24,27 +24,27 @@ describe "ExportController" do
     let(:empty_deck) { double(generate_deck: nil) }
     let(:populated_deck) { double(generate_deck: "了; りょう - finish, complete, end") }
 
-    it "creates a new instance of AnkiDeck with the deck_type parameters" do
-      AnkiDeck.should_receive(:new).with("critical").and_return(empty_deck)
-      get "/export/generate/critical"
+    it "creates a new instance of AnkiDeck with the deck_type parameters and percentage" do
+      AnkiDeck.should_receive(:new).with("critical", "50").and_return(empty_deck)
+      post "/export/generate", deck_type: "critical", percentage: 50
     end
 
     it "calls AnkiDeck#generate_deck with the created AnkiDeck object" do
       AnkiDeck.stub(:new).and_return(empty_deck)
       empty_deck.should_receive(:generate_deck)
-      get "/export/generate/critical"
+      post "/export/generate", deck_type: "critical"
     end
 
     it "redirects to /export if the deck is nil" do
       AnkiDeck.stub(:new).and_return(empty_deck)
-      get "/export/generate/critical"
+      post "/export/generate", deck_type: "critical"
       last_response.should be_redirect
       last_response.location.should == "http://example.org/export"
     end
 
     it "prepares a plain text file ready to download" do
       AnkiDeck.stub(:new).and_return(populated_deck)
-      get "/export/generate/critical"
+      post "/export/generate", deck_type: "critical"
       last_response["Content-Type"].should == "text/plain;charset=utf-8"
     end
   end

@@ -9,8 +9,8 @@ Wkanki::App.controllers :export do
     render 'export/index'
   end
 
-  get :generate, map: '/export/generate/:deck_type' do
-    generator = AnkiDeck.new(params[:deck_type])
+  post :generate do
+    generator = AnkiDeck.new(params[:deck_type], params[:percentage])
     deck = generator.generate_deck
 
     if deck.nil?

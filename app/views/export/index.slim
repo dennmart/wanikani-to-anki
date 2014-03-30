@@ -14,7 +14,9 @@
     h3 Choose which type of Anki deck you want to generate from your WaniKani account
 
     .row
-      .col-md-8
-        strong Critical Items
-      .col-md-4
-        = link_to("Generate Anki Deck", '/export/generate/critical')
+      = form_tag '/export/generate', role: "form" do
+        .col-md-8
+          strong Critical Items
+        .col-md-4
+          = hidden_field_tag "deck_type", value: "critical"
+          = submit_tag "Generate Anki Deck for Critical Items", class: "btn btn-default"
