@@ -1,0 +1,10 @@
+.row
+  = form_tag '/export/generate', role: "form", class: "form-inline" do
+    .col-md-4
+      strong Radicals
+    .col-md-4
+      | Levels 
+      = text_field_tag "argument", class: "form-control"
+    .col-md-4
+      = hidden_field_tag "deck_type", value: "radicals"
+      = submit_tag "Generate Anki Deck for Radicals", class: "btn btn-default"

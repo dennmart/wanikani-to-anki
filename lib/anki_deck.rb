@@ -49,6 +49,13 @@ class AnkiDeck
     converter.vocabulary_to_text(vocabulary)
   end
 
+  def radicals
+    levels = levels_to_fetch
+    radicals = Wanikani::Level.radicals(levels)
+    return nil if radicals.empty?
+    converter.radicals_to_text(radicals)
+  end
+
   def method_missing(method)
     return nil
   end

@@ -11,6 +11,10 @@ class AnkiDeck::Converter
     items.map { |item| vocabulary_type_to_string(item) }.compact.join("\n")
   end
 
+  def radicals_to_text(items)
+    items.map { |item| radical_type_to_string(item) }.compact.join("\n")
+  end
+
   private
 
   def kanji_type_to_string(item)
