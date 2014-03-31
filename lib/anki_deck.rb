@@ -42,6 +42,13 @@ class AnkiDeck
     converter.kanji_to_text(kanji)
   end
 
+  def vocabulary
+    levels = levels_to_fetch
+    vocabulary = Wanikani::Level.vocabulary(levels)
+    return nil if vocabulary.empty?
+    converter.vocabulary_to_text(vocabulary)
+  end
+
   def method_missing(method)
     return nil
   end

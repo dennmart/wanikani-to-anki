@@ -7,6 +7,10 @@ class AnkiDeck::Converter
     items.map { |item| kanji_type_to_string(item) }.compact.join("\n")
   end
 
+  def vocabulary_to_text(items)
+    items.map { |item| vocabulary_type_to_string(item) }.compact.join("\n")
+  end
+
   private
 
   def kanji_type_to_string(item)
