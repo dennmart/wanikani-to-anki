@@ -16,6 +16,10 @@ class AnkiDeck
     @converter ||= AnkiDeck::Converter.new
   end
 
+  def current_user_level
+    Wanikani::User.information["level"]
+  end
+
   def critical
     percentage = self.argument || 75
     critical_items = Wanikani::CriticalItems.critical(percentage.to_i)
@@ -24,7 +28,13 @@ class AnkiDeck
   end
 
   def kanji
-    level = 18
+    level = if self.argument.blank?
+              (1..current_user_level).to_a.join(",")
+            else
+              self.argument
+            end
+
+    puts "Level: #{level}"
     kanji = Wanikani::Level.kanji(level)
     return nil if kanji.empty?
     converter.kanji_to_text(kanji)
