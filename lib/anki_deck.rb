@@ -16,8 +16,16 @@ class AnkiDeck
     @converter ||= AnkiDeck::Converter.new
   end
 
-  def current_user_level
-    Wanikani::User.information["level"]
+  def current_user
+    @current_user ||= Wanikani::User.information
+  end
+
+  def levels_to_fetch
+    if self.argument.blank?
+      (1..current_user["level"]).to_a.join(",")
+    else
+      self.argument
+    end
   end
 
   def critical
@@ -28,14 +36,8 @@ class AnkiDeck
   end
 
   def kanji
-    level = if self.argument.blank?
-              (1..current_user_level).to_a.join(",")
-            else
-              self.argument
-            end
-
-    puts "Level: #{level}"
-    kanji = Wanikani::Level.kanji(level)
+    levels = levels_to_fetch
+    kanji = Wanikani::Level.kanji(levels)
     return nil if kanji.empty?
     converter.kanji_to_text(kanji)
   end
