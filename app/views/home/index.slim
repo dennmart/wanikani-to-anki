@@ -1,14 +1,30 @@
 .home
-  h1 WaniKani to Anki exporter
+  .row
+    h1.text-center WaniKani to Anki exporter
+
+  .row
+    img src="images/wkanki_logo.png" class="center-block"
+
+  .row
+    h4.text-center Export your WaniKani reviews to Anki decks!
 
   - if flash[:error]
-    #login_error.alert.alert-danger= flash[:error]
+    .row
+      .alert.alert-danger= flash[:error]
 
-  #api_key_form
-    p Please enter your WaniKani API key
+  #api_key_form.row
+    p.text-center Enter your WaniKani API key to get started.
+
     = form_tag '/login', role: "form" do
-      .form-group
-        = text_field_tag :wanikani_api_key, placeholder: "WaniKani API Key", class: "form-control"
-      .text-center
+      .row
+        .col-md-4
+        .col-md-4.form-group
+          = text_field_tag :wanikani_api_key, placeholder: "WaniKani API Key", class: "form-control"
+        .col-md-4
+      .row.text-center
         = submit_tag "Let's Go!", class: "btn btn-default"
-
+      .row
+        p.text-center
+          small
+            em
+              | (We will never save your API key anywhere!)

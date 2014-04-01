@@ -1,11 +1,12 @@
+body {
+  background-color: #00aaff;
+  color: #fff;
+}
+
 .home {
-  padding-top: 100px;
+  padding-top: 60px;
 }
 
 .home h1 {
-  text-align: center;
-}
-
-.home #api_key_form p {
-  text-align: center;
+  margin-bottom: 30px;
 }
