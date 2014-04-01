@@ -8,12 +8,14 @@
   .row
     h4.text-center Export your WaniKani reviews to Anki decks!
 
-  - if flash[:error]
-    .row
-      .alert.alert-danger= flash[:error]
-
-  #api_key_form.row
+  .row
     p.text-center Enter your WaniKani API key to get started.
+
+    - if flash[:error]
+      .row
+        .col-md-3
+        .col-md-6.alert.alert-danger= flash[:error]
+        .col-md-3
 
     = form_tag '/login', role: "form" do
       .row
