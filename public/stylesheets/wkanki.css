@@ -3,10 +3,19 @@ body {
   color: #fff;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Scada', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Gudea', sans-serif;
+}
+
 .home {
   padding-top: 60px;
 }
 
 .home h1 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
