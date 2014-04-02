@@ -2,6 +2,7 @@ module Wkanki
   class App < Padrino::Application
     register Padrino::Rendering
     register Padrino::Helpers
+    register SassInitializer
     enable :sessions
 
     set :protect_from_csrf, false

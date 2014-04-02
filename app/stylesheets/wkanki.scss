@@ -1,0 +1,45 @@
+body {
+  background-color: #00aaff;
+  color: #fff;
+}
+
+a {
+  color: #0000cc;
+}
+
+h1, h2, h4 {
+  font-family: 'Scada', sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: 'Gudea', sans-serif;
+}
+
+.home {
+  padding-top: 60px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+.export-section {
+  p.title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0;
+  }
+
+  a {
+    color: #0ff;
+  }
+
+  input[type="text"] {
+    width: 100px;
+  }
+
+  .additional-options {
+    display: none;
+  }
+}

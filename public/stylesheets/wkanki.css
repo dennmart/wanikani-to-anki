@@ -1,43 +1,29 @@
 body {
   background-color: #00aaff;
-  color: #fff;
-}
+  color: #fff; }
 
 a {
-  color: #0000cc;
-}
+  color: #0000cc; }
 
 h1, h2, h4 {
   font-family: 'Scada', sans-serif;
-  font-weight: 700;
-}
+  font-weight: 700; }
 
 p {
-  font-family: 'Gudea', sans-serif;
-}
+  font-family: 'Gudea', sans-serif; }
 
 .home {
-  padding-top: 60px;
-}
-
-.home h1 {
-  margin-bottom: 20px;
-}
+  padding-top: 60px; }
+  .home h1 {
+    margin-bottom: 20px; }
 
 .export-section p.title {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 0;
-}
-
+  margin-bottom: 0; }
 .export-section a {
-  color: #0ff;
-}
-
+  color: #0ff; }
 .export-section input[type="text"] {
-  width: 100px;
-}
-
+  width: 100px; }
 .export-section .additional-options {
-  display: none;
-}
+  display: none; }
