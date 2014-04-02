@@ -7,7 +7,7 @@ a {
   color: #0000cc;
 }
 
-h1, h4 {
+h1, h2, h4 {
   font-family: 'Scada', sans-serif;
   font-weight: 700;
 }
@@ -22,4 +22,22 @@ p {
 
 .home h1 {
   margin-bottom: 20px;
+}
+
+.export-section p.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.export-section a {
+  color: #0ff;
+}
+
+.export-section input[type="text"] {
+  width: 100px;
+}
+
+.export-section .additional-options {
+  /*display: none;*/
 }

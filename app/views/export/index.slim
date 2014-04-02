@@ -8,16 +8,17 @@
   #user_info.row
     .col-md-6.text-right
       img src="http://www.gravatar.com/avatar/#{@wanikani_user["gravatar"]}?s=100"
-    .col-md-6
-      p
-        strong Hello, #{@wanikani_user["username"]}!
-      p
+    .col-md-2
+      p.text-center
+        br
+        strong Hi, #{@wanikani_user["username"]}!
+        br
         small= link_to("(Not #{@wanikani_user["username"]}?)", '/logout', method: :delete)
 
   #export_section
     .row
       .col-md-12.text-center
-        h3 Choose which type of Anki deck you want to generate from your WaniKani account
+        p.lead Choose which type of Anki deck you want to generate from your WaniKani account
 
     - if flash[:error]
       .row
@@ -26,7 +27,7 @@
         .col-md-2
 
     .row
-      .col-md-3= partial "export/critical_items"
-      .col-md-3= partial "export/kanji"
-      .col-md-3= partial "export/vocabulary"
-      .col-md-3= partial "export/radicals"
+      .col-md-3.export-section= partial "export/critical_items"
+      .col-md-3.export-section= partial "export/kanji"
+      .col-md-3.export-section= partial "export/vocabulary"
+      .col-md-3.export-section= partial "export/radicals"

@@ -1,9 +1,22 @@
 = form_tag '/export/generate', role: "form", class: "form-inline" do
+  p.title.text-center Radicals
+
+  p.text-center
+    = link_to "Additional Options", '#', "data-export-section" => "radicals"
+
+  #radicals_options.additional-options
   p
-    strong Radicals
-  p
-    | Levels 
-    = text_field_tag "argument", class: "form-control"
-  p
+    .radio
+      label
+        input type="radio" name="specified_levels" id="specified_levels_all" value="all" checked="checked"
+        |  All Levels
+      label
+    .radio
+      label
+        input type="radio" name="specified_levels" id="specified_levels_specific" value="specific"
+        |  Specific Levels 
+        = text_field_tag "argument", class: "form-control input-sm"
+
+  p.text-center
     = hidden_field_tag "deck_type", value: "radicals"
-    = submit_tag "Generate Anki Deck for Radicals", class: "btn btn-default"
+    = submit_tag "Download", class: "btn btn-default"

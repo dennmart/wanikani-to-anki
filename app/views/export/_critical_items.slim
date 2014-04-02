@@ -1,9 +1,14 @@
 = form_tag '/export/generate', role: "form", class: "form-inline" do
-  p
-    strong Critical Items
-  p
-    | Max Percentage: 
-    = text_field_tag "argument", class: "form-control"
-  p
+  p.title.text-center Critical Items
+
+  p.text-center
+    = link_to "Additional Options", '#', "data-export-section" => "critical_items"
+
+  #critical_items_options.additional-options
+    p
+      | Max Percentage: 
+      = text_field_tag "argument", class: "form-control input-sm"
+
+  p.text-center
     = hidden_field_tag "deck_type", value: "critical"
     = submit_tag "Download", class: "btn btn-default"
