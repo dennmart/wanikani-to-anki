@@ -1,19 +1,32 @@
-.export
-  #user_image
-    img src="http://www.gravatar.com/avatar/#{@wanikani_user["gravatar"]}?s=200"
+#export_section
+  .row
+    .col-md-6
+      h2 WaniKani to Anki Exporter
+    .col-md-6.text-right
+      img src="images/wkanki_logo.png" width="100" height="100"
 
-  #welcome_message
-    p Hi, #{@wanikani_user["username"]}!
-    p
-      small= link_to("(Not #{@wanikani_user["username"]}?)", '/logout', method: :delete)
+  #user_info.row
+    .col-md-6.text-right
+      img src="http://www.gravatar.com/avatar/#{@wanikani_user["gravatar"]}?s=100"
+    .col-md-6
+      p
+        strong Hello, #{@wanikani_user["username"]}!
+      p
+        small= link_to("(Not #{@wanikani_user["username"]}?)", '/logout', method: :delete)
 
-  - if flash[:error]
-      #login_error.alert.alert-danger= flash[:error]
+  #export_section
+    .row
+      .col-md-12.text-center
+        h3 Choose which type of Anki deck you want to generate from your WaniKani account
 
-  #export_types
-    h3 Choose which type of Anki deck you want to generate from your WaniKani account
+    - if flash[:error]
+      .row
+        .col-md-2
+        .col-md-8.alert.alert-danger.text-center= flash[:error]
+        .col-md-2
 
-    = partial "export/critical_items"
-    = partial "export/kanji"
-    = partial "export/vocabulary"
-    = partial "export/radicals"
+    .row
+      .col-md-3= partial "export/critical_items"
+      .col-md-3= partial "export/kanji"
+      .col-md-3= partial "export/vocabulary"
+      .col-md-3= partial "export/radicals"

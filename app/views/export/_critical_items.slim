@@ -1,10 +1,9 @@
-.row
-  = form_tag '/export/generate', role: "form", class: "form-inline" do
-    .col-md-4
-      strong Critical Items
-    .col-md-4
-      | Max Percentage: 
-      = text_field_tag "argument", class: "form-control"
-    .col-md-4
-      = hidden_field_tag "deck_type", value: "critical"
-      = submit_tag "Generate Anki Deck for Critical Items", class: "btn btn-default"
+= form_tag '/export/generate', role: "form", class: "form-inline" do
+  p
+    strong Critical Items
+  p
+    | Max Percentage: 
+    = text_field_tag "argument", class: "form-control"
+  p
+    = hidden_field_tag "deck_type", value: "critical"
+    = submit_tag "Download", class: "btn btn-default"

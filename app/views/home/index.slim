@@ -14,7 +14,7 @@
     - if flash[:error]
       .row
         .col-md-3
-        .col-md-6.alert.alert-danger= flash[:error]
+        .col-md-6.alert.alert-danger.text-center= flash[:error]
         .col-md-3
 
     = form_tag '/login', role: "form" do
