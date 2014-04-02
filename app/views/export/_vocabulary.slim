@@ -5,17 +5,17 @@
     = link_to "Additional Options", '#', "data-export-section" => "vocabulary"
 
   #vocabulary_options.additional-options
-  p
-    .radio
-      label
-        input type="radio" name="selected_levels" id="selected_levels_all" value="all" checked="checked"
-        |  All Levels
-      label
-    .radio
-      label
-        input type="radio" name="selected_levels" id="selected_levels_specific" value="specific"
-        |  Specific Levels 
-        = text_field_tag "argument", class: "form-control input-sm"
+    p
+      .radio
+        label
+          input type="radio" name="selected_levels" id="selected_levels_all" value="all" checked="checked"
+          |  All Levels
+        label
+      .radio
+        label
+          input type="radio" name="selected_levels" id="selected_levels_specific" value="specific"
+          |  Specific Levels 
+          = text_field_tag "argument", class: "form-control input-sm"
 
   p.text-center
     = hidden_field_tag "deck_type", value: "vocabulary"
