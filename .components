@@ -4,6 +4,6 @@
 :mock: none
 :script: jquery
 :renderer: slim
-:stylesheet: none
+:stylesheet: sass
 :namespace: Wkanki
 :migration_format: number

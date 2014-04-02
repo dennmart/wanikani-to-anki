@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'padrino', '0.12.0'
 gem 'rake'
+gem 'sass'
 gem 'slim'
 gem 'wanikani'
 
