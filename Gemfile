@@ -7,6 +7,7 @@ gem 'slim'
 gem 'wanikani'
 gem 'capistrano'
 gem 'capistrano-rbenv'
+gem 'capistrano-bundler'
 
 group :test do
   gem 'rspec'
