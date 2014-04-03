@@ -5,6 +5,7 @@ gem 'rake'
 gem 'sass'
 gem 'slim'
 gem 'wanikani'
+gem 'capistrano'
 
 group :test do
   gem 'rspec'
