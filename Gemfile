@@ -6,6 +6,7 @@ gem 'sass'
 gem 'slim'
 gem 'wanikani'
 gem 'capistrano'
+gem 'capistrano-rbenv'
 
 group :test do
   gem 'rspec'

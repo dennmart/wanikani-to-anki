@@ -34,6 +34,10 @@ set :scm, :git
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+# rbenv specific settings
+set :rbenv_type, :user
+set :rbenv_ruby, '2.1.1'
+
 namespace :deploy do
   desc 'Restart application'
   task :restart do
