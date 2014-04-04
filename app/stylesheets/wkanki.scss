@@ -42,4 +42,11 @@ p {
   .additional-options {
     display: none;
   }
+
+  form {
+    label.error {
+      margin-top: 10px;
+      color: #ff0;
+    }
+  }
 }

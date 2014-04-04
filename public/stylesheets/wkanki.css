@@ -27,3 +27,6 @@ p {
   width: 100px; }
 .export-section .additional-options {
   display: none; }
+.export-section form label.error {
+  margin-top: 10px;
+  color: #ff0; }

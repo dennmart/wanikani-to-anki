@@ -1,4 +1,4 @@
-= form_tag '/export/generate', role: "form", class: "form-inline" do
+= form_tag '/export/generate', role: "form", class: "form-inline", id: "critical_items_form" do
   p.title.text-center Critical Items
 
   p.text-center
@@ -7,7 +7,7 @@
   #critical_items_options.additional-options
     p
       | Max Percentage: 
-      = text_field_tag "argument", class: "form-control input-sm"
+      = text_field_tag "argument", class: "form-control input-sm", placeholder: "Default: 75"
 
   p.text-center
     = hidden_field_tag "deck_type", value: "critical"

@@ -1,4 +1,4 @@
-= form_tag '/export/generate', role: "form", class: "form-inline" do
+= form_tag '/export/generate', role: "form", class: "form-inline", id: "kanji_form" do
   p.title.text-center Kanji
 
   p.text-center
@@ -15,7 +15,7 @@
         label
           input type="radio" name="selected_levels" id="selected_levels_specific" value="specific"
           |  Specific Levels 
-          = text_field_tag "argument", class: "form-control input-sm"
+          = text_field_tag "argument", class: "form-control input-sm", placeholder: "Example: 1,25"
 
   p.text-center
     = hidden_field_tag "deck_type", value: "kanji"
