@@ -6,16 +6,13 @@
 
   #radicals_options.additional-options
     p
-      .radio
-        label
-          input type="radio" name="selected_levels" id="selected_levels_all" value="all" checked="checked"
-          |  All Levels
-        label
-      .radio
-        label
-          input type="radio" name="selected_levels" id="selected_levels_specific" value="specific"
-          |  Specific Levels 
-          = text_field_tag "argument", class: "form-control input-sm", placeholder: "Example: 1,25"
+      label
+        input type="radio" name="selected_levels" id="selected_levels_all" value="all" checked="checked"
+        |  All Levels
+      label
+        input type="radio" name="selected_levels" id="selected_levels_specific" value="specific"
+        |  Specific Levels 
+        = text_field_tag "argument", class: "form-control input-sm", placeholder: "Example: 1,25"
 
   p.text-center
     = hidden_field_tag "deck_type", value: "radicals"
