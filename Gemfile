@@ -5,6 +5,9 @@ gem 'rake'
 gem 'sass'
 gem 'slim'
 gem 'wanikani'
+gem 'anki'
+
+# Deployment gems
 gem 'capistrano'
 gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
