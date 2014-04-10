@@ -10,16 +10,16 @@ Wkanki::App.controllers :export do
   end
 
   post :generate do
-    generator = AnkiDeck.new(params[:deck_type], optional_argument(params))
-    deck = generator.generate_deck
+    cards = WanikaniApi.send("fetch_#{params[:deck_type]}", optional_argument(params))
 
-    if deck.nil?
+    if cards.blank?
       flash[:error] = "There were no items to export! Try changing the parameters for the deck, or try exporting a different deck."
       redirect url(:export, :index)
     else
       content_type 'text/plain', charset: 'utf-8'
       attachment "#{params[:deck_type]}.txt"
-      deck
+      anki = Anki::Deck.new(card_data: cards)
+      anki.generate_deck
     end
   end
 end
