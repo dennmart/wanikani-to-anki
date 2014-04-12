@@ -9,7 +9,8 @@ describe "SessionController" do
       end
 
       it "sets session[:wanikani_api_key] with the specified key" do
-        pending
+        decoded_session = decode_session_cookie(last_response.header["Set-Cookie"])
+        decoded_session["wanikani_api_key"].should == "valid-api-key"
       end
 
       it "redirects to /export " do
@@ -37,7 +38,8 @@ describe "SessionController" do
     end
 
     it "deletes the API key from the session" do
-      pending
+      decoded_session = decode_session_cookie(last_response.header["Set-Cookie"])
+      decoded_session.should_not have_key("wanikani_api_key")
     end
 
     it "redirects to the home page" do

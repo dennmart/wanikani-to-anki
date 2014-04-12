@@ -19,3 +19,11 @@ def app(app = nil, &blk)
   @app ||= block_given? ? app.instance_eval(&blk) : app
   @app ||= Padrino.application
 end
+
+# Decodes the Rack session from the response's cookie. This will
+# allow us to get session information in our tests.
+def decode_session_cookie(cookie)
+  encoded_cookie_str = cookie.match(/rack\.session=(\S*);/)[1]
+  data = Rack::Utils.unescape(encoded_cookie_str).unpack("m*").first
+  Marshal.load(data)
+end
