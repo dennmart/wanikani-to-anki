@@ -10,8 +10,9 @@ module Wkanki
     ##
     # Caching support.
     #
-    # register Padrino::Cache
-    # enable :caching
+    register Padrino::Cache
+    enable :caching
+    set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new)
     #
     # You can customize caching store engines:
     #

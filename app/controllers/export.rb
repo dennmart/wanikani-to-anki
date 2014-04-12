@@ -5,7 +5,6 @@ Wkanki::App.controllers :export do
 
   get :index do
     redirect url(:home, :index) if session[:wanikani_api_key].blank?
-    @wanikani_user = Wanikani::User.information
     render 'export/index'
   end
 

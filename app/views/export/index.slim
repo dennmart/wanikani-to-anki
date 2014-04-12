@@ -7,13 +7,13 @@
 
   #user_info.row
     .col-md-6.text-right
-      img src="http://www.gravatar.com/avatar/#{@wanikani_user["gravatar"]}?s=100"
+      img src="http://www.gravatar.com/avatar/#{wanikani_user["gravatar"]}?s=100"
     .col-md-2
       p.text-center
         br
-        strong Hi, #{@wanikani_user["username"]}!
+        strong Hi, #{wanikani_user["username"]}!
         br
-        small= link_to("(Not #{@wanikani_user["username"]}?)", '/logout', method: :delete)
+        small= link_to("(Not #{wanikani_user["username"]}?)", '/logout', method: :delete)
 
   #export_section
     .row
