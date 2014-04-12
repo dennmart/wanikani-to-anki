@@ -1,4 +1,4 @@
-Wkanki::App.helpers do
+module WkankiHelper
   def set_api_key(api_key)
     Wanikani.api_key = api_key
   end
@@ -18,3 +18,5 @@ Wkanki::App.helpers do
     end
   end
 end
+
+Wkanki::App.helpers WkankiHelper
