@@ -13,6 +13,7 @@ gem 'anki'
 gem 'capistrano'
 gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
+gem 'capistrano-newrelic'
 
 group :test do
   gem 'rspec'
