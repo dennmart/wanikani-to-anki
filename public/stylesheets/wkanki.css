@@ -17,6 +17,9 @@ p {
   .home h1 {
     margin-bottom: 20px; }
 
+#user_info .username {
+  font-size: 20px; }
+
 .export-section p.title {
   font-size: 24px;
   font-weight: 700;

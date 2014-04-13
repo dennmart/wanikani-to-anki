@@ -6,16 +6,14 @@
       img src="images/wkanki_logo.png" width="100" height="100"
 
   #user_info.row
-    .col-md-6.text-right
-      img src="http://www.gravatar.com/avatar/#{wanikani_user["gravatar"]}?s=100"
-    .col-md-2
+    .col-md-12.text-center
+      img src="http://www.gravatar.com/avatar/#{wanikani_user["gravatar"]}?s=100" class="img-circle"
       p.text-center
+        strong.username Hi, #{wanikani_user["username"]}!
         br
-        strong Hi, #{wanikani_user["username"]}!
-        br
-        small= link_to("(Not #{wanikani_user["username"]}?)", '/logout', method: :delete)
+        small.logout_link= link_to("(Not #{wanikani_user["username"]}?)", '/logout', method: :delete)
 
-  #export_section
+  #export_section_items
     .row
       .col-md-12.text-center
         p.lead Choose which type of Anki deck you want to generate from your WaniKani account
