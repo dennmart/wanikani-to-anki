@@ -17,7 +17,7 @@ Wkanki::App.controllers :export do
     else
       content_type 'text/plain', charset: 'utf-8'
       attachment "#{params[:deck_type]}.txt"
-      generate_anki_deck(cards)
+      generate_anki_deck(params[:deck_type], cards)
     end
   end
 end

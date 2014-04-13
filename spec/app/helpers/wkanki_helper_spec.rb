@@ -46,14 +46,21 @@ describe WkankiHelper do
   end
 
   describe '#generate_anki_deck' do
+    let(:deck_type) { "critical" }
     let(:card_data) { [{ "了" => "りょう - finish, complete, end" }] }
+    let(:deck) { double(generate_deck: "了;りょう - finish, complete, end") }
 
     it 'instantiates an Anki::Deck object with the specified card data and generates a deck' do
-      deck = double(generate_deck: "了;りょう - finish, complete, end")
       Anki::Deck.should_receive(:new).with(card_data: card_data).and_return(deck)
       deck.should_receive(:generate_deck)
-      generated_deck = subject.generate_anki_deck(card_data)
+      generated_deck = subject.generate_anki_deck(deck_type, card_data)
       generated_deck.should match(/#{card_data}/)
+    end
+
+    it 'capitalizes the first letter of the deck type for presentability in comments' do
+      Anki::Deck.stub(:new).and_return(deck)
+      generated_deck = subject.generate_anki_deck(deck_type, card_data)
+      generated_deck.should match(/Critical/)
     end
   end
 end
