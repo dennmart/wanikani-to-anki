@@ -17,6 +17,13 @@ module WkankiHelper
       return params[:argument]
     end
   end
+
+  def generate_anki_deck(cards)
+    anki = Anki::Deck.new(card_data: cards)
+    deck = "# Generated on #{Time.now.strftime('%B %d, %Y %H:%M %p %Z')}\n"
+    deck += "# WaniKani to Anki Exporter (http://wanikanitoanki.com)\n"
+    deck += anki.generate_deck
+  end
 end
 
 Wkanki::App.helpers WkankiHelper

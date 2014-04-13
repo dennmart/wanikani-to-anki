@@ -44,4 +44,16 @@ describe WkankiHelper do
       subject.optional_argument(params).should be_nil
     end
   end
+
+  describe '#generate_anki_deck' do
+    let(:card_data) { [{ "了" => "りょう - finish, complete, end" }] }
+
+    it 'instantiates an Anki::Deck object with the specified card data and generates a deck' do
+      deck = double(generate_deck: "了;りょう - finish, complete, end")
+      Anki::Deck.should_receive(:new).with(card_data: card_data).and_return(deck)
+      deck.should_receive(:generate_deck)
+      generated_deck = subject.generate_anki_deck(card_data)
+      generated_deck.should match(/#{card_data}/)
+    end
+  end
 end
