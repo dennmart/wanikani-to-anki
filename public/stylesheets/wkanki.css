@@ -12,6 +12,10 @@ h1, h2, h4 {
 p {
   font-family: 'Gudea', sans-serif; }
 
+.created_by {
+  margin-top: 50px;
+  font-size: 11px; }
+
 .home {
   padding-top: 60px; }
   .home h1 {
