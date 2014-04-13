@@ -17,6 +17,11 @@ p {
   .home h1 {
     margin-bottom: 20px; }
 
+.header-section {
+  margin-top: 10px; }
+  .header-section h2 {
+    margin-top: 30px; }
+
 #user_info .username {
   font-size: 20px; }
 
