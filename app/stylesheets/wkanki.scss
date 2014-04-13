@@ -4,7 +4,11 @@ body {
 }
 
 a {
-  color: #0000cc;
+  color: #FFFF00;
+
+  &:hover, &:focus {
+    color: #FF00FF;
+  }
 }
 
 h1, h2, h4 {

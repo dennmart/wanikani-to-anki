@@ -3,7 +3,9 @@ body {
   color: #fff; }
 
 a {
-  color: #0000cc; }
+  color: #FFFF00; }
+  a:hover, a:focus {
+    color: #FF00FF; }
 
 h1, h2, h4 {
   font-family: 'Scada', sans-serif;
