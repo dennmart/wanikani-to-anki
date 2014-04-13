@@ -5,6 +5,7 @@ gem 'rake'
 gem 'sass'
 gem 'slim'
 gem 'dalli'
+gem 'newrelic_rpm'
 gem 'wanikani'
 gem 'anki'
 

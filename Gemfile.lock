@@ -35,6 +35,7 @@ GEM
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (2.8.0)
+    newrelic_rpm (3.7.3.204)
     padrino (0.12.1)
       padrino-admin (= 0.12.1)
       padrino-cache (= 0.12.1)
@@ -124,6 +125,7 @@ DEPENDENCIES
   capistrano-bundler
   capistrano-rbenv
   dalli
+  newrelic_rpm
   padrino (= 0.12.1)
   rack-test
   rake
