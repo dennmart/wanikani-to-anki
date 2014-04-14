@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe "SessionController" do
   describe "/login" do
+    context "with invalid string" do
+      it "redirects to the home page if the string is invalid" do
+        post '/login', wanikani_api_key: "this key is invalid because it has spaces"
+        last_response.should be_redirect
+        last_response.location.should == "http://example.org/"
+      end
+    end
+
     context "with valid key" do
       before(:each) do
         Wanikani.should_receive(:valid_api_key?).and_return(true)
