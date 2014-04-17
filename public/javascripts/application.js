@@ -8,16 +8,8 @@ $(document).ready(function() {
     return this.optional(element) || /^[0-9]+(,[0-9]+)*$/.test(value);
   }, "Please use a list of comma-separated numbers (e.g. '1,10,25')");
 
-  $("#kanji_form input[name='argument']").on("click", function() {
-    $("#kanji_form input[id='selected_levels_specific']").prop('checked', true);
-  });
-
-  $("#vocabulary_form input[name='argument']").on("click", function() {
-    $("#vocabulary_form input[id='selected_levels_specific']").prop('checked', true);
-  });
-
-  $("#radicals_form input[name='argument']").on("click", function() {
-    $("#radicals_form input[id='selected_levels_specific']").prop('checked', true);
+  $(".full-lists-form input[name='argument']").on("click", function() {
+    $(this).prev("input[id='selected_levels_specific']").prop("checked", true);
   });
 
   $("#critical_items_form").validate({
@@ -32,27 +24,15 @@ $(document).ready(function() {
     }
   });
 
-  $("#kanji_form").validate({
+  var fullListsValidation = {
     rules: {
       argument: {
         wanikaniLevelRange: true
       }
     }
-  });
+  };
 
-  $("#vocabulary_form").validate({
-    rules: {
-      argument: {
-        wanikaniLevelRange: true
-      }
-    }
-  });
-
-  $("#radicals_form").validate({
-    rules: {
-      argument: {
-        wanikaniLevelRange: true
-      }
-    }
-  });
+  $("#kanji_form").validate(fullListsValidation);
+  $("#vocabulary_form").validate(fullListsValidation);
+  $("#radicals_form").validate(fullListsValidation);
 });
