@@ -26,6 +26,5 @@
 
     .row
       .col-md-3.export-section= partial "export/critical_items"
-      .col-md-3.export-section= partial "export/kanji"
-      .col-md-3.export-section= partial "export/vocabulary"
-      .col-md-3.export-section= partial "export/radicals"
+      - %w(kanji vocabulary radicals).each do |type|
+        .col-md-3.export-section== partial "export/full_lists_form", locals: { type: type }
