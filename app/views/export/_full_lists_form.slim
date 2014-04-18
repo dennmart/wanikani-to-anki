@@ -1,5 +1,5 @@
 = form_tag '/export/generate', role: "form", class: "form-inline full-lists-form", id: "#{type}_form" do
-  p.title.text-center #{type}
+  p.title.text-center #{type.capitalize}
 
   p.text-center
     = link_to "Additional Options", '#', class: "additional-options-toggle", "data-export-section" => type
