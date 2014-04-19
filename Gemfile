@@ -6,6 +6,7 @@ gem 'sass'
 gem 'slim'
 gem 'dalli'
 gem 'newrelic_rpm'
+gem 'dotenv'
 gem 'wanikani'
 gem 'anki'
 
