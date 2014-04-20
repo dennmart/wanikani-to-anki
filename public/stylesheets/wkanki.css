@@ -18,10 +18,10 @@ p {
   margin-top: 50px;
   font-size: 11px; }
 
-.home {
+.home h1 {
+  margin-bottom: 20px; }
+.home .header-spacer {
   padding-top: 60px; }
-  .home h1 {
-    margin-bottom: 20px; }
 
 .header-section {
   margin-top: 10px; }

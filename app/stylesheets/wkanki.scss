@@ -26,10 +26,12 @@ p {
 }
 
 .home {
-  padding-top: 60px;
-
   h1 {
     margin-bottom: 20px;
+  }
+
+  .header-spacer {
+    padding-top: 60px;
   }
 }
 
