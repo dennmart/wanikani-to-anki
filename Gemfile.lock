@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
-    anki (0.0.1)
+    anki (0.0.2)
     capistrano (3.1.0)
       i18n
       rake (>= 10.0.0)
