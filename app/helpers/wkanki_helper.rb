@@ -10,14 +10,6 @@ module WkankiHelper
     end
   end
 
-  def optional_argument(params)
-    if params[:selected_levels] && params[:selected_levels] == "all"
-      return nil
-    else
-      return params[:argument]
-    end
-  end
-
   def generate_anki_deck(type, cards)
     anki = Anki::Deck.new(card_data: cards)
     deck = deck_comments_header(type)

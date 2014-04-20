@@ -9,6 +9,9 @@
       label
         | Max Percentage: 
         = text_field_tag "argument", class: "form-control input-sm", placeholder: "Default: 75"
+      label
+        input type="checkbox" name="level_tags" id="level_tags"
+        |  Add Level Tags
 
   p.text-center
     = hidden_field_tag "deck_type", value: "critical"

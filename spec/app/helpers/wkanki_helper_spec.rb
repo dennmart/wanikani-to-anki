@@ -28,23 +28,6 @@ describe WkankiHelper do
     end
   end
 
-  describe '#optional_argument' do
-    it 'returns :argument from the params if the :selected_levels param is not set' do
-      params = { argument: 50 }
-      subject.optional_argument(params).should == 50
-    end
-
-    it 'returns :argument from the params if the :selected_levels param is not "all"' do
-      params = { argument: 80, selected_levels: "1,2,3" }
-      subject.optional_argument(params).should == 80
-    end
-
-    it 'returns nil if the :selected_levels param is "all"' do
-      params = { argument: 100, selected_levels: "all" }
-      subject.optional_argument(params).should be_nil
-    end
-  end
-
   describe '#generate_anki_deck' do
     let(:deck_type) { "critical" }
     let(:card_data) { [{ "了" => "りょう - finish, complete, end" }] }

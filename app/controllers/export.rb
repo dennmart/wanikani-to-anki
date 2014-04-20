@@ -10,7 +10,7 @@ Wkanki::App.controllers :export do
 
   post :generate do
     begin
-      cards = WanikaniApi.send("fetch_#{params[:deck_type]}", optional_argument(params))
+      cards = WanikaniApi.send("fetch_#{params[:deck_type]}", params)
     rescue Exception => e
       flash[:error] = "Whoops! WaniKani sent us the following error message: #{e.message}"
       redirect url(:export, :index)

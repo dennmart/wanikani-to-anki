@@ -21,9 +21,10 @@ describe "ExportController" do
   end
 
   describe "/export/generate" do
-    it "calls WanikaniApi.fetch_* using the deck type and argument" do
-      WanikaniApi.should_receive(:send).with("fetch_critical", "85")
-      post "/export/generate", deck_type: "critical", argument: "85"
+    it "calls WanikaniApi.fetch_* using the deck type and params" do
+      params = { "deck_type" => "critical", "argument" => "85" }
+      WanikaniApi.should_receive(:send).with("fetch_critical", params)
+      post "/export/generate", params
     end
 
     it "redirects to /export if the deck is nil" do
