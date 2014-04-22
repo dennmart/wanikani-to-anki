@@ -116,7 +116,7 @@ GEM
       thread_safe (~> 0.1)
     url_mount (0.2.1)
       rack
-    wanikani (0.0.9)
+    wanikani (0.10)
       multi_json (~> 1.9)
       rest-client (~> 1.6)
 
