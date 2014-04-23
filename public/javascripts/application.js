@@ -1,7 +1,7 @@
 $(document).ready(function() {
   $(".additional-options-toggle").on("click", function(e) {
     e.preventDefault();
-    $("#" + $(this).data("export-section") + "_options").toggle();
+    $("#" + $(this).data("export-section") + "_options").slideToggle(200);
   });
 
   jQuery.validator.addMethod("wanikaniLevelRange", function(value, element) {
