@@ -14,6 +14,9 @@ h1, h2, h4 {
 p {
   font-family: 'Gudea', sans-serif; }
 
+.top-buffer {
+  padding-top: 20px; }
+
 .created_by {
   margin-top: 50px;
   font-size: 11px; }
