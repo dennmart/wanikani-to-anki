@@ -5,7 +5,10 @@
     = link_to "Additional Options", '#', class: "additional-options-toggle", "data-export-section" => "burned_items"
 
   #burned_items_options.additional-options
-    p.text-center No additional options for now!
+    p.text-center
+      label
+        input type="checkbox" name="level_tags" id="level_tags"
+        |  Add Level Tags
 
   p.text-center
     = hidden_field_tag "deck_type", value: "burned"

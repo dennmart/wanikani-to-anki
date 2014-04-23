@@ -20,6 +20,11 @@ class WanikaniApi
     radicals.map { |item| radical_type_to_string(item, params[:level_tags]) }.compact
   end
 
+  def self.fetch_burned(params)
+    burned_items = Wanikani::SRS.items_by_type('burned')
+    burned_items.map { |item| self.send("#{item["type"]}_type_to_string", item, params[:level_tags]) }.compact
+  end
+
   private
 
   def self.kanji_type_to_string(item, level_tags)

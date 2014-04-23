@@ -99,4 +99,31 @@ describe WanikaniApi do
       radicals.values.first["tags"].should include("Level4")
     end
   end
+
+  describe ".fetch_burned" do
+    it "iterates through burned items array and calls methods according to the type" do
+      Wanikani::SRS.stub(:items_by_type).with('burned').and_return(items)
+      WanikaniApi.should_receive(:kanji_type_to_string).once
+      WanikaniApi.should_receive(:vocabulary_type_to_string).once
+      WanikaniApi.should_receive(:radical_type_to_string).once
+      WanikaniApi.fetch_burned(level_tags: "on")
+    end
+
+    context "without level_tags" do
+      it "doesn't include if the level_tags parameter is not set" do
+        Wanikani::SRS.stub(:items_by_type).with('burned').and_return(items)
+        burned = WanikaniApi.fetch_burned({})
+        burned.first.values.first.should_not be_a(Hash)
+      end
+    end
+
+    context "with level_tags" do
+      it "includes tags if the level_tags parameter is set" do
+        Wanikani::SRS.stub(:items_by_type).with('burned').and_return(items)
+        burned = WanikaniApi.fetch_burned(level_tags: "on")
+        burned.first.values.first.should be_a(Hash)
+        burned.first.values.first.should have_key("tags")
+      end
+    end
+  end
 end
