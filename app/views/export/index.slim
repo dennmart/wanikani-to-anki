@@ -20,9 +20,7 @@
 
     - if flash[:error]
       .row
-        .col-md-2
-        .col-md-8.alert.alert-danger.text-center= flash[:error]
-        .col-md-2
+        .col-md-8.col-md-offset-2.alert.alert-danger.text-center= flash[:error]
 
     .row
       - %w(kanji vocabulary radicals).each do |type|
@@ -32,5 +30,6 @@
       .col-md-12.top-buffer.hidden-xs
 
     .row
-      .col-md-4.col-md-offset-1.export-section= partial "export/critical_items"
-      .col-md-4.col-md-offset-2.export-section= partial "export/burned_items"
+      .col-md-4.export-section= partial "export/critical_items"
+      .col-md-4.export-section= partial "export/burned_items"
+      .col-md-4.export-section= partial "export/recent_unlocks"

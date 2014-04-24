@@ -25,6 +25,11 @@ class WanikaniApi
     burned_items.map { |item| self.send("#{item["type"]}_type_to_string", item, params[:level_tags]) }.compact
   end
 
+  def self.fetch_recent_unlocks(params)
+    recent_unlocks = Wanikani::RecentUnlocks.list(100)
+    recent_unlocks.map { |item| self.send("#{item["type"]}_type_to_string", item, params[:level_tags]) }.compact
+  end
+
   private
 
   def self.kanji_type_to_string(item, level_tags)
