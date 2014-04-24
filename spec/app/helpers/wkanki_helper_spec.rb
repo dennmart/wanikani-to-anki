@@ -45,5 +45,12 @@ describe WkankiHelper do
       generated_deck = subject.generate_anki_deck(deck_type, card_data)
       generated_deck.should match(/Critical/)
     end
+
+    it 'removed any underscores from the deck type for presentability in comments' do
+      deck_type = 'recent_unlocks'
+      Anki::Deck.stub(:new).and_return(deck)
+      generated_deck = subject.generate_anki_deck(deck_type, card_data)
+      generated_deck.should match(/Recent unlocks/)
+    end
   end
 end

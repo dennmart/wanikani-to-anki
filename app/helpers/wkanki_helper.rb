@@ -19,7 +19,7 @@ module WkankiHelper
   private
 
   def deck_comments_header(type)
-    deck = "# WaniKani - #{type.chomp.sub(/./, &:upcase)}\n"
+    deck = "# WaniKani - #{type.chomp.sub(/./, &:upcase).tr('_', ' ')}\n"
     deck += "# Generated on #{Time.now.strftime('%B %d, %Y %H:%M %p %Z')}\n"
     deck += "# WaniKani to Anki Exporter (http://wanikanitoanki.com)\n"
     deck
