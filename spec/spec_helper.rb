@@ -3,8 +3,17 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
 require File.dirname(__FILE__) + "/../app/helpers/wanikani_api"
 require File.dirname(__FILE__) + "/../app/helpers/wkanki_helper"
 
+require 'capybara'
+require 'capybara/dsl'
+
+Capybara.app = Wkanki::App
+Capybara.register_driver :rack_test do |app|
+  Capybara::RackTest::Driver.new(app, :respect_data_method => true)
+end
+
 RSpec.configure do |conf|
   conf.include Rack::Test::Methods
+  conf.include Capybara::DSL
 end
 
 # You can use this method to custom specify a Rack app
