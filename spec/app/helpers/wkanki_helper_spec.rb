@@ -18,13 +18,16 @@ describe WkankiHelper do
   end
 
   describe '#wanikani_user' do
-    it 'returns nil if the Wanikani.api_key is not set' do
+    it 'returns nil if the API key is not set' do
       Wanikani.api_key = nil
       subject.wanikani_user.should be_nil
     end
 
-    it 'returns Wanikani::User.information when the API key is set' do
-      pending
+    it 'should hit the cache if the API key is set' do
+      Wanikani.api_key = 'valid-api-key'
+      returned_user = { "user_information" => { "username" => "dennmart" } }
+      subject.should_receive(:cache_object).with('wanikani/user/valid-api-key', expires: 300).and_return(returned_user)
+      subject.wanikani_user.should == returned_user
     end
   end
 
