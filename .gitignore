@@ -7,3 +7,5 @@ vendor/gems/*
 .sass-cache/*
 db/*.db
 .*.sw*
+public/stylesheets/wkanki
+public/javascripts/wkanki
