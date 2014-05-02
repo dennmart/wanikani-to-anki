@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'padrino', '0.12.1'
-gem 'padrino-contrib'
 gem 'rake'
 gem 'sass'
 gem 'slim'
@@ -10,6 +9,8 @@ gem 'newrelic_rpm'
 gem 'dotenv'
 gem 'wanikani'
 gem 'anki'
+gem 'padrino-contrib'
+gem 'yui-compressor', require: 'yui/compressor'
 
 # Deployment gems
 gem 'capistrano'
