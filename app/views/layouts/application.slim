@@ -4,8 +4,10 @@ html
     title WaniKani to Anki Exporter
     meta name="viewport" content="width=device-width, initial-scale=1"
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Gudea:400,400italic,700|Scada:700'
-    = stylesheet_link_tag 'bootstrap.min', 'wkanki'
-    = javascript_include_tag 'jquery','jquery-ujs', 'jquery.validate.min', 'bootstrap.min', 'application'
+    = stylesheet_link_tag 'bootstrap.min'
+    = stylesheet_link_tag 'wkanki', cache: true
+    = javascript_include_tag 'jquery','jquery-ujs', 'jquery.validate.min', 'bootstrap.min'
+    = javascript_include_tag 'application', cache: true
     = yield_content :include
 
   body

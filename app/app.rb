@@ -12,6 +12,7 @@ module Wkanki
     enable :caching
     set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new)
 
+    register Padrino::Contrib::Helpers::AssetsCompressor
     ##
     # Application configuration options.
     #
