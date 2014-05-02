@@ -64,6 +64,7 @@ GEM
       moneta (~> 0.7.0)
       padrino-core (= 0.12.1)
       padrino-helpers (= 0.12.1)
+    padrino-contrib (0.1.13)
     padrino-core (0.12.1)
       activesupport (>= 3.1)
       http_router (~> 0.11.0)
@@ -145,6 +146,7 @@ DEPENDENCIES
   dotenv
   newrelic_rpm
   padrino (= 0.12.1)
+  padrino-contrib
   rack-test
   rake
   rspec
