@@ -39,7 +39,7 @@ set :ssh_options, { port: 2316 }
 
 # rbenv specific settings
 set :rbenv_type, :user
-set :rbenv_ruby, '2.1.3'
+set :rbenv_ruby, '2.1.4'
 
 namespace :deploy do
   desc 'Restart application'
