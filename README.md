@@ -12,7 +12,7 @@ You will need a WaniKani API key to see all the functionality built in.
 ## How to run the website
 
 The WaniKani to Anki Exporter site is a [Padrino](http://www.padrinorb.com/) app. Currently it
-is running on Ruby 2.1.1, and I have tested it on Ruby 2.0 as well.
+is running on Ruby 2.1.4, and I have tested it on Ruby 2.0 as well.
 
 Getting the site up and running is very simple if you already have Ruby installed. In the
 project's directory, all you need to do is the following:
@@ -25,6 +25,13 @@ $ rackup
 That should be all! If you go to http://localhost:9292 after that, the site should be working.
 Currently there's no database required, but that might change in the future as I expand the
 site's functionality.
+
+## Vagrant
+
+If you have [Vagrant]() installed, I included a simple Vagrantfile that will set up an environment
+and automatically run the WaniKani to Anki Exporter site in an Ubuntu 14.04 virtual machine on
+your local machine. By simply running `vagrant up`, you should be able to go to http://localhost:9292
+and see the site.
 
 ## Why did I build this?
 
