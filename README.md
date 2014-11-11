@@ -28,7 +28,7 @@ site's functionality.
 
 ## Vagrant
 
-If you have [Vagrant]() installed, I included a simple Vagrantfile that will set up an environment
+If you have [Vagrant](https://www.vagrantup.com/) installed, I included a simple Vagrantfile that will set up an environment
 and automatically run the WaniKani to Anki Exporter site in an Ubuntu 14.04 virtual machine on
 your local machine. By simply running `vagrant up`, you should be able to go to http://localhost:9292
 and see the site.
