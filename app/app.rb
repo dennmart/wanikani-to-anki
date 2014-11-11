@@ -2,6 +2,7 @@ module Wkanki
   class App < Padrino::Application
     register Padrino::Rendering
     register Padrino::Helpers
+    register Padrino::Cache
     register SassInitializer
     enable :sessions
 
@@ -9,7 +10,6 @@ module Wkanki
 
     configure :production do
       register Padrino::Contrib::Helpers::AssetsCompressor
-      register Padrino::Cache
       enable :caching
       set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new)
     end
