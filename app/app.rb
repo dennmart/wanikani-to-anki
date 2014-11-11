@@ -7,12 +7,12 @@ module Wkanki
 
     set :protect_from_csrf, false
 
-    # Caching support.
-    register Padrino::Cache
-    enable :caching
-    set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new)
-
-    register Padrino::Contrib::Helpers::AssetsCompressor
+    configure :production do
+      register Padrino::Contrib::Helpers::AssetsCompressor
+      register Padrino::Cache
+      enable :caching
+      set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new)
+    end
     ##
     # Application configuration options.
     #
