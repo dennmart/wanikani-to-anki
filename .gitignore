@@ -9,3 +9,4 @@ db/*.db
 .*.sw*
 public/stylesheets/wkanki
 public/javascripts/wkanki
+.vagrant
