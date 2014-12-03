@@ -33,6 +33,11 @@ and automatically run the WaniKani to Anki Exporter site in an Ubuntu 14.04 virt
 your local machine. By simply running `vagrant up`, you should be able to go to http://localhost:9292
 and see the site.
 
+By default, the provisioning is done using a [shell script](https://github.com/dennmart/wanikani-to-anki/blob/master/provisioning/provision.sh)
+that I have included in the repository. If you prefer to use [Ansible](http://www.ansible.com/home) as
+your primary automation tool, I also included an [Ansible playbook](https://github.com/dennmart/wanikani-to-anki/blob/master/provisioning/playbook.yml)
+that you can use instead. You will have to modify the Vagrantfile to use Ansible instead.
+
 ## Why did I build this?
 
 I'm both an avid WaniKani user as a Japanese student, as well as an avid Anki user. I wanted to

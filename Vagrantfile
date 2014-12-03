@@ -7,5 +7,13 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.network "forwarded_port", guest: 9292, host: 9292
-  config.vm.provision "shell", path: "https://gist.githubusercontent.com/dennmart/60788929cf89dde5d720/raw/41df26d6bf265021c329c86883d18f7e03b75b7f/provision.sh"
+
+  # Provisioning is done by default via the shell.
+  config.vm.provision "shell", path: "provisioning/provision.sh"
+
+  # If you prefer to use Ansible for provisioning, you should comment the shell
+  # provisioning line and uncomment the following lines.
+  #config.vm.provision "ansible" do |ansible|
+  #  ansible.playbook = "provisioning/playbook.yml"
+  #end
 end
