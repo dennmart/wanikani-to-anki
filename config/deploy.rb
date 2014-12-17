@@ -1,5 +1,4 @@
-# config valid only for Capistrano 3.2.1
-lock '3.2.1'
+lock '3.3.5'
 
 set :application, 'wkanki'
 set :repo_url, 'git@github.com:dennmart/wkanki.git'
