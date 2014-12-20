@@ -10,3 +10,4 @@ db/*.db
 public/stylesheets/wkanki
 public/javascripts/wkanki
 .vagrant
+.ruby-version
