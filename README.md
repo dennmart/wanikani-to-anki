@@ -9,13 +9,24 @@ into an [Anki](http://ankisrs.net/) deck.
 If you have a WaniKani account, you can see the site up and running at http://wanikanitoanki.com.
 You will need a WaniKani API key to see all the functionality built in.
 
+## Prerequisites
+
+1. Ruby 2.1.4 https://www.ruby-lang.org/en/
+
+Install as per your operating system instructions.
+
+2. Bundler http://bundler.io/
+
+```
+gem install bundler
+```
+
 ## How to run the website
 
-The WaniKani to Anki Exporter site is a [Padrino](http://www.padrinorb.com/) app. Currently it
-is running on Ruby 2.1.4, and I have tested it on Ruby 2.0 as well.
+The WaniKani to Anki Exporter site is a [Padrino](http://www.padrinorb.com/) app.
 
-Getting the site up and running is very simple if you already have Ruby installed. In the
-project's directory, all you need to do is the following:
+Getting the site up and running is very simple.
+In the project's directory, run the following:
 
 ```
 $ bundle install
