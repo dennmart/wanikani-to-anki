@@ -11,7 +11,7 @@ You will need a WaniKani API key to see all the functionality built in.
 
 ## Prerequisites
 
-1. Ruby 2.1.4 https://www.ruby-lang.org/en/
+1. Ruby 2.2.0 https://www.ruby-lang.org/en/
 
 Install as per your operating system instructions.
 
