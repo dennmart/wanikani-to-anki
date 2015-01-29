@@ -22,28 +22,9 @@ describe WanikaniApi do
 
     it "iterates through critical items array and calls methods according to the type" do
       allow(Wanikani::CriticalItems).to receive(:critical).and_return(items)
-      expect(WanikaniApi).to receive(:kanji_type_to_string).once
-      expect(WanikaniApi).to receive(:vocabulary_type_to_string).once
-      expect(WanikaniApi).to receive(:radical_type_to_string).once
       WanikaniApi.fetch_critical(params)
     end
 
-    context "without level_tags" do
-      it "doesn't include if the level_tags parameter is not set" do
-        allow(Wanikani::CriticalItems).to receive(:critical).and_return(items)
-        critical = WanikaniApi.fetch_critical(params)
-        expect(critical.first.values.first).not_to be_a(Hash)
-      end
-    end
-
-    context "with level_tags" do
-      it "includes tags if the level_tags parameter is set" do
-        allow(Wanikani::CriticalItems).to receive(:critical).and_return(items)
-        critical = WanikaniApi.fetch_critical(params.merge(level_tags: "on"))
-        expect(critical.first.values.first).to be_a(Hash)
-        expect(critical.first.values.first).to have_key("tags")
-      end
-    end
   end
 
   describe ".fetch_kanji" do
@@ -51,17 +32,20 @@ describe WanikaniApi do
       allow(Wanikani::Level).to receive(:kanji).and_return([kanji_item])
     end
 
-    it "returns the character, important reading value and meaning of the item" do
-      kanji = WanikaniApi.fetch_kanji(level_params).first
-      expect(kanji.keys.first).to eq("了")
-      expect(kanji.values.first).to eq("りょう - finish, complete, end")
+    it "Adds type=kanji to result" do
+      kanjis = WanikaniApi.fetch_kanji(level_params)
+      expect(kanjis.size).to eq(1)
+      kanji = kanjis[0]
+      expect(kanji["type"]).to eq("kanji")
+      expect(kanji["character"]).to eq("了")
+      expect(kanji["meaning"]).to eq("finish, complete, end")
+      expect(kanji["onyomi"]).to eq("りょう")
+      expect(kanji["kunyomi"]).to be nil
+      expect(kanji["important_reading"]).to eq("onyomi")
+      expect(kanji["level"]).to eq(2)
+      expect(kanji["percentage"]).to eq("72")
     end
 
-    it "also includes tags with the level information if the level_tags parameter is set" do
-      kanji = WanikaniApi.fetch_kanji(level_params.merge(level_tags: "on")).first
-      expect(kanji.values.first).to have_key("tags")
-      expect(kanji.values.first["tags"]).to include("Level2")
-    end
   end
 
   describe ".fetch_vocabulary" do
@@ -69,17 +53,18 @@ describe WanikaniApi do
       allow(Wanikani::Level).to receive(:vocabulary).and_return([vocabulary_item])
     end
 
-    it "returns the character, kana and meaning of the item" do
-      vocabulary = WanikaniApi.fetch_vocabulary(level_params).first
-      expect(vocabulary.keys.first).to eq("伝説")
-      expect(vocabulary.values.first).to eq("でんせつ - legend")
+    it "Adds type=vocabulary to results" do
+      vocabularys = WanikaniApi.fetch_vocabulary(level_params)
+      expect(vocabularys.size).to eq(1)
+      vocabulary = vocabularys[0]
+      expect(vocabulary["type"]).to eq("vocabulary")
+      expect(vocabulary["character"]).to eq("伝説")
+      expect(vocabulary["kana"]).to eq("でんせつ")
+      expect(vocabulary["meaning"]).to eq("legend")
+      expect(vocabulary["level"]).to eq(17)
+      expect(vocabulary["percentage"]).to eq("72")
     end
 
-    it "also includes tags with the level information if the level_tags parameter is set" do
-      vocabulary = WanikaniApi.fetch_vocabulary(level_params.merge(level_tags: "on")).first
-      expect(vocabulary.values.first).to have_key("tags")
-      expect(vocabulary.values.first["tags"]).to include("Level17")
-    end
   end
 
   describe ".fetch_radicals" do
@@ -87,70 +72,18 @@ describe WanikaniApi do
       allow(Wanikani::Level).to receive(:radicals).and_return([radical_item])
     end
 
-    it "returns the character, kana and meaning of the item" do
-      radicals = WanikaniApi.fetch_radicals(level_params).first
-      expect(radicals.keys.first).to eq("貝")
-      expect(radicals.values.first).to eq("clam")
+    it "Adds type=radical" do
+      radicals = WanikaniApi.fetch_radicals(level_params)
+      expect(radicals.size).to eq(1)
+      radical = radicals[0]
+      expect(radical["type"]).to eq("radical")
+      expect(radical["character"]).to eq("貝")
+      expect(radical["meaning"]).to eq("clam")
+      expect(radical["image"]).to be nil
+      expect(radical["level"]).to eq(4)
+      expect(radical["percentage"]).to eq("75")
     end
 
-    it "also includes tags with the level information if the level_tags parameter is set" do
-      radicals = WanikaniApi.fetch_radicals(level_params.merge(level_tags: "on")).first
-      expect(radicals.values.first).to have_key("tags")
-      expect(radicals.values.first["tags"]).to include("Level4")
-    end
   end
 
-  describe ".fetch_burned" do
-    it "iterates through burned items array and calls methods according to the type" do
-      allow(Wanikani::SRS).to receive(:items_by_type).with('burned').and_return(items)
-      expect(WanikaniApi).to receive(:kanji_type_to_string).once
-      expect(WanikaniApi).to receive(:vocabulary_type_to_string).once
-      expect(WanikaniApi).to receive(:radical_type_to_string).once
-      WanikaniApi.fetch_burned(level_tags: "on")
-    end
-
-    context "without level_tags" do
-      it "doesn't include if the level_tags parameter is not set" do
-        allow(Wanikani::SRS).to receive(:items_by_type).with('burned').and_return(items)
-        burned = WanikaniApi.fetch_burned({})
-        expect(burned.first.values.first).not_to be_a(Hash)
-      end
-    end
-
-    context "with level_tags" do
-      it "includes tags if the level_tags parameter is set" do
-        allow(Wanikani::SRS).to receive(:items_by_type).with('burned').and_return(items)
-        burned = WanikaniApi.fetch_burned(level_tags: "on")
-        expect(burned.first.values.first).to be_a(Hash)
-        expect(burned.first.values.first).to have_key("tags")
-      end
-    end
-  end
-
-  describe ".fetch_recent_unlocks" do
-    it "iterates through burned items array and calls methods according to the type" do
-      allow(Wanikani::RecentUnlocks).to receive(:list).with(100).and_return(items)
-      expect(WanikaniApi).to receive(:kanji_type_to_string).once
-      expect(WanikaniApi).to receive(:vocabulary_type_to_string).once
-      expect(WanikaniApi).to receive(:radical_type_to_string).once
-      WanikaniApi.fetch_recent_unlocks(level_tags: "on")
-    end
-
-    context "without level_tags" do
-      it "doesn't include if the level_tags parameter is not set" do
-        allow(Wanikani::RecentUnlocks).to receive(:list).with(100).and_return(items)
-        recent_unlocks = WanikaniApi.fetch_recent_unlocks({})
-        expect(recent_unlocks.first.values.first).not_to be_a(Hash)
-      end
-    end
-
-    context "with level_tags" do
-      it "includes tags if the level_tags parameter is set" do
-        allow(Wanikani::RecentUnlocks).to receive(:list).with(100).and_return(items)
-        recent_unlocks = WanikaniApi.fetch_recent_unlocks(level_tags: "on")
-        expect(recent_unlocks.first.values.first).to be_a(Hash)
-        expect(recent_unlocks.first.values.first).to have_key("tags")
-      end
-    end
-  end
 end
