@@ -1,4 +1,12 @@
 module WkankiHelper
+  @@WANIKANI_API = "1.2";
+
+  @@HEADERS= ["type", "character", "meaning", "image", "onyomi", "kunyomi", "important_reading", "kana", "level"]
+
+  def headers
+    return @@HEADERS
+  end
+
   def set_api_key(api_key)
     Wanikani.api_key = api_key
   end
@@ -11,7 +19,7 @@ module WkankiHelper
   end
 
   def generate_anki_deck(type, cards)
-    anki = Anki::Deck.new(card_data: cards)
+    anki = Anki::Deck.new(card_headers: headers, card_data: cards)
     deck = deck_comments_header(type)
     deck += anki.generate_deck
   end

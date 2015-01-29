@@ -32,28 +32,39 @@ describe WkankiHelper do
   end
 
   describe '#generate_anki_deck' do
-    let(:deck_type) { "critical" }
-    let(:card_data) { [{ "了" => "りょう - finish, complete, end" }] }
-    let(:deck) { double(generate_deck: "了;りょう - finish, complete, end") }
+    let(:card_data) {
+      [
+        { "type" => "vocabulary",
+          "character" => "了",
+          "kana" => "りょう",
+          "meaning" => "finish, complete, end",
+          "level" => "2"
+        }
+      ]
+    }
 
-    it 'instantiates an Anki::Deck object with the specified card data and generates a deck' do
-      expect(Anki::Deck).to receive(:new).with(card_data: card_data).and_return(deck)
-      expect(deck).to receive(:generate_deck)
-      generated_deck = subject.generate_anki_deck(deck_type, card_data)
-      expect(generated_deck).to match(/#{card_data}/)
+    context "critical" do
+      let(:deck_type) { "critical" }
+
+      it 'generates a correct deck' do
+        generated_deck = subject.generate_anki_deck(deck_type, card_data)
+        deck_lines = generated_deck.split("\n");
+        expect(deck_lines[0]).to eq("# WaniKani - Critical")
+        expect(deck_lines[3]).to eq("#type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
+        expect(deck_lines[4]).to eq("vocabulary;了;finish, complete, end;;;;;りょう;2")
+      end
     end
 
-    it 'capitalizes the first letter of the deck type for presentability in comments' do
-      allow(Anki::Deck).to receive(:new).and_return(deck)
-      generated_deck = subject.generate_anki_deck(deck_type, card_data)
-      expect(generated_deck).to match(/Critical/)
-    end
-
-    it 'removed any underscores from the deck type for presentability in comments' do
-      deck_type = 'recent_unlocks'
-      allow(Anki::Deck).to receive(:new).and_return(deck)
-      generated_deck = subject.generate_anki_deck(deck_type, card_data)
-      expect(generated_deck).to match(/Recent unlocks/)
+    context "recent unlocks" do
+      let (:deck_type) { "recent_unlocks" }
+        it 'removed any underscores from the deck type for presentability in comments' do
+          generated_deck = subject.generate_anki_deck(deck_type, card_data)
+          deck_lines = generated_deck.split("\n");
+          expect(deck_lines[0]).to eq("# WaniKani - Recent unlocks")
+          expect(deck_lines[3]).to eq("#type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
+          expect(deck_lines[4]).to eq("vocabulary;了;finish, complete, end;;;;;りょう;2")
+          puts "Generated deck #{generated_deck}"
+        end
     end
   end
 end
