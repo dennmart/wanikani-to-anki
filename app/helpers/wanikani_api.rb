@@ -6,19 +6,19 @@ class WanikaniApi
 
   def self.fetch_kanji(params)
     kanji = Wanikani::Level.kanji(optional_argument(params))
-    kanji.each { |item| item[:type] = "kanji" }
+    kanji.each { |item| item["type"] = "kanji" }
     return kanji
   end
 
   def self.fetch_vocabulary(params)
     vocabulary = Wanikani::Level.vocabulary(optional_argument(params))
-    vocabulary.each { |item| item[:type] = "vocabulary" }
+    vocabulary.each { |item| item["type"] = "vocabulary" }
     return vocabulary
   end
 
   def self.fetch_radicals(params)
     radicals = Wanikani::Level.radicals(optional_argument(params))
-    radicals.each { |item| item[:type] = "radical" }
+    radicals.each { |item| item["type"] = "radical" }
     return radicals
   end
 
