@@ -2,8 +2,5 @@
   p.title.text-center Recent Unlocks
 
   p.text-center
-    = link_to "Additional Options", '#', class: "additional-options-toggle", "data-export-section" => "recent_unlocks"
-
-  p.text-center
     = hidden_field_tag "deck_type", value: "recent_unlocks"
     = submit_tag "Download", class: "btn btn-default"
