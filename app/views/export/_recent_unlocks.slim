@@ -4,12 +4,6 @@
   p.text-center
     = link_to "Additional Options", '#', class: "additional-options-toggle", "data-export-section" => "recent_unlocks"
 
-  #recent_unlocks_options.additional-options
-    p.text-center
-      label
-        input type="checkbox" name="level_tags" id="level_tags"
-        |  Add Level Tags
-
   p.text-center
     = hidden_field_tag "deck_type", value: "recent_unlocks"
     = submit_tag "Download", class: "btn btn-default"

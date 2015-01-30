@@ -14,10 +14,6 @@
         input type="radio" name="selected_levels" id="selected_levels_specific" value="specific"
         |  Specific Levels 
         = text_field_tag "argument", class: "form-control input-sm", placeholder: "Example: 1,25"
-      br
-      label
-        input type="checkbox" name="level_tags" id="level_tags"
-        |  Add Level Tags
 
   p.text-center
     = hidden_field_tag "deck_type", value: type
