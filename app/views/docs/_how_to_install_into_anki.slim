@@ -1,0 +1,126 @@
+h1 How to install into Anki
+
+p In WaniKani to Anki exporter choose any of the exporter options and save the file locally.
+
+p Note: The comments at the top of the file define the field header names and these are currently <em>#key;type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level</em> which are the merged fields returned by <a href="https://www.wanikani.com/api">https://www.wanikani.com/api</a>
+
+h2 Create the WaniKani Note Type
+p Start Anki and choose <em>Tools > Manage Note Types</em>. 
+
+p Click the <em>Add</em> button, select <em>"Add: Basic"</em> and click <em>Ok</em>. Type in <em>WaniKani</em> for the <em>Note Type Name</em> and click <em>Ok</em>
+
+p For each of the field headers above, click <em>Add</em> to create a new field in Anki.
+
+img src="images/anki_fields_for_WaniKani.png"
+
+h2 Create the Deck Definition
+
+p <em>Tools > Study Deck...</em>
+
+p click <em>Add</em> and in the New deck name enter <em>WaniKani</em>, and click <em>Ok</em>.
+
+p Cancel the Study Deck dialog
+
+h2 Create the Card Definition
+
+p On the main page of Anki click the <em>Add</em> button at the top
+
+p In the dialog make sure the <em>Type</em> is "WaniKani" and <em>Deck</em> is "WaniKani"
+
+p Click the <em>Cards...</em> button
+
+h3 WaniKani cards
+
+p At the bottom of the <em>Card Types for WaniKani</em> window click the <em>More</em> button and click <em>Rename</em>, type <em>WaniKani</em> and click <em>Ok</em>
+
+p For <em>Front Template</em> use
+
+p
+  pre
+    code 
+      / Use http://www.freeformatter.com/html-escape.html to escape the Anki 
+      ' 
+        &lt;div class=&quot;ja {{type}}&quot;&gt;
+        {{#character}}{{character}}{{/character}}
+        {{#image}}{{image}}{{/image}}
+        &lt;/div&gt;
+
+p For <em>Styling</em> use
+
+p
+  pre
+    code
+      / Use http://www.freeformatter.com/html-escape.html to escape the Anki 
+      '
+        .card {
+         font-family: arial;
+         font-size: 40px;
+         text-align: center;
+         color: black;
+         background-color: white;
+        }
+
+        .ja {
+            color: #fff;
+            font-size: 6em;
+            font-weight: normal;
+            line-height: 1.6em;
+        }
+
+        .radical {
+            background-color: #00a0f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25) inset;
+            text-shadow: 5px 5px 0 #0093dd;
+        }
+
+        .kanji {
+            background-color: #f100a0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25) inset;
+            text-shadow: 5px 5px 0 #dd0093;
+        }
+
+        .vocabulary {
+            background-color: #a000f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25) inset;
+            text-shadow: 5px 5px 0 #9300dd;
+        }
+
+        .small {
+            margin-top: 2em;
+            font-size: 0.5em;
+        }
+
+p For <em>Back Template</em> use
+
+p
+  pre
+    code
+      / Use http://www.freeformatter.com/html-escape.html to escape the Anki 
+      '
+        {{FrontSide}}
+
+        &lt;hr id=answer&gt;
+
+        {{#kana}}&lt;div class=&quot;kana&quot;&gt;{{kana}}&lt;/div&gt;{{/kana}}
+        &lt;div class=&quot;meaning&quot;&gt;{{meaning}}&lt;/div&gt;
+        {{#important_reading}}&lt;div class=&quot;important_reading&quot;&gt;Important Reading: {{important_reading}}&lt;/div&gt;{{/important_reading}}
+        {{#onyomi}}&lt;div class=&quot;onyomin&quot;&gt;Onyomi: {{onyomi}}&lt;/div&gt;{{/onyomi}}
+        {{#kunyomi}}&lt;div class=&quot;kunyomi&quot;&gt;Kunyoni: {{kunyomi}}&lt;/div&gt;{{/kunyomi}}
+
+        &lt;div class=&quot;small&quot;&gt;Card type: {{type}}&lt;/div&gt;
+
+h2 Import into Anki
+
+p <em>File > Import</em>, select the file, and click <em>Open</em> 
+
+img src="images/anki_import_dialog.png"
+
+p Make sure the Type is <em>WaniKani</em> and the Deck is <em>WaniKani</em>
+
+p Make sure that import option is set to "Import even if existing note has the same first field"
+
+p Since the fields being imported are in the same order as the Note Type previously created there is no need to change the mapping.
+
+p Click <em>Import</em>
+
+
