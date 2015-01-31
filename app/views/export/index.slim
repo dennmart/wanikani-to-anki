@@ -2,7 +2,9 @@
   .row.header-section.text-center
     .col-md-4
       h2 WaniKani to Anki Exporter
-    .col-md-4.col-md-offset-4.text-right
+    .col-md-4
+      h2= link_to 'Docs', url_for(:docs, :index)
+    .col-md-4.text-right
       img src="images/wanikanitoanki_logo_sm.png" class="center-block img-responsive"
 
   #user_info.row

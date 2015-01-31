@@ -1,8 +1,10 @@
 #docs_section
   .row.header-section.text-center
     .col-md-4
-      p= link_to 'WaniKani to Anki Exporter', url_for(:export, :index)
-    .col-md-4.col-md-offset-4.text-right
+      h2 WaniKani to Anki Exporter
+    .col-md-4
+      h2= link_to 'Export', url_for(:export, :index)
+    .col-md-4.text-right
       img src="images/wanikanitoanki_logo_sm.png" class="center-block img-responsive"
 
   #docs_toc
