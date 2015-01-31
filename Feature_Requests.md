@@ -38,7 +38,7 @@ Choose fields to export
 "I've been thinking about ways to let people define what fields they want, so when I get some spare time I'll probably start incorporating some changes to let people choose what they want."
 (Releated to Documentation: How to create reverse decks (i.e. English -> Japanese))
 
-Documentation: How to import the deck into Anki
+(DONE) Documentation: How to import the deck into Anki
 -----------------------------------------------
 * https://www.wanikani.com/chat/api-and-third-party-apps/5154/page/2#post126000
 "When I import these into anki, they all end up in the same deck. And that causes the some things to get replaced by one another"
