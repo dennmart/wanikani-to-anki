@@ -155,10 +155,10 @@ describe WkankiHelper do
       generated_deck = subject.generate_anki_deck("critical", critical_items)
       deck_lines = generated_deck.split("\n");
       expect(deck_lines[0]).to eq("# WaniKani - Critical")
-      expect(deck_lines[3]).to eq("#type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
-      expect(deck_lines[4]).to eq("radical;久;raptor-cage;;;;;;3")
-      expect(deck_lines[5]).to eq("vocabulary;入る;to enter;;;;;はいる;1")
-      expect(deck_lines[6]).to eq("kanji;九;nine;;く, きゅう;ここの.*;onyomi;;1")
+      expect(deck_lines[3]).to eq("#key;type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
+      expect(deck_lines[4]).to eq("r_raptor-cage;radical;久;raptor-cage;;;;;;3")
+      expect(deck_lines[5]).to eq("v_入る;vocabulary;入る;to enter;;;;;はいる;1")
+      expect(deck_lines[6]).to eq("k_九;kanji;九;nine;;く, きゅう;ここの.*;onyomi;;1")
       expect(deck_lines.size).to eq(7)
     end
 
@@ -166,10 +166,10 @@ describe WkankiHelper do
       generated_deck = subject.generate_anki_deck("recent_unlocks", recent_unlocks)
       deck_lines = generated_deck.split("\n");
       expect(deck_lines[0]).to eq("# WaniKani - Recent unlocks")
-      expect(deck_lines[3]).to eq("#type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
-      expect(deck_lines[4]).to eq("vocabulary;魚;fish;;;;;さかな;7")
-      expect(deck_lines[5]).to eq("kanji;失;fault;;しつ;うしな.う;onyomi;;7")
-      expect(deck_lines[6]).to eq("radical;卩;stamp;;;;;;7")
+      expect(deck_lines[3]).to eq("#key;type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
+      expect(deck_lines[4]).to eq("v_魚;vocabulary;魚;fish;;;;;さかな;7")
+      expect(deck_lines[5]).to eq("k_失;kanji;失;fault;;しつ;うしな.う;onyomi;;7")
+      expect(deck_lines[6]).to eq("r_stamp;radical;卩;stamp;;;;;;7")
       expect(deck_lines.size).to eq(7)
     end
 
@@ -177,9 +177,9 @@ describe WkankiHelper do
       generated_deck = subject.generate_anki_deck("radicals", radicals)
       deck_lines = generated_deck.split("\n");
       expect(deck_lines[0]).to eq("# WaniKani - Radicals")
-      expect(deck_lines[3]).to eq("#type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
-      expect(deck_lines[4]).to eq("radical;;gun;https://s3.amazonaws.com/s3.wanikani.com/images/radicals/80fff71b321c8cee57db7224f5fe1daa331128b5.png;;;;;1")
-      expect(deck_lines[5]).to eq("radical;小;small;;;;;;2")
+      expect(deck_lines[3]).to eq("#key;type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
+      expect(deck_lines[4]).to eq("r_gun;radical;;gun;https://s3.amazonaws.com/s3.wanikani.com/images/radicals/80fff71b321c8cee57db7224f5fe1daa331128b5.png;;;;;1")
+      expect(deck_lines[5]).to eq("r_small;radical;小;small;;;;;;2")
       expect(deck_lines.size).to eq(6)
     end
 
@@ -187,9 +187,9 @@ describe WkankiHelper do
       generated_deck = subject.generate_anki_deck("kanji", kanji)
       deck_lines = generated_deck.split("\n");
       expect(deck_lines[0]).to eq("# WaniKani - Kanji")
-      expect(deck_lines[3]).to eq("#type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
-      expect(deck_lines[4]).to eq("kanji;入;enter;;にゅう;はい.る, い.れる;onyomi;;1")
-      expect(deck_lines[5]).to eq("kanji;工;industry;;こう;;onyomi;;1")
+      expect(deck_lines[3]).to eq("#key;type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
+      expect(deck_lines[4]).to eq("k_入;kanji;入;enter;;にゅう;はい.る, い.れる;onyomi;;1")
+      expect(deck_lines[5]).to eq("k_工;kanji;工;industry;;こう;;onyomi;;1")
       expect(deck_lines.size).to eq(6)
     end
 
@@ -197,9 +197,9 @@ describe WkankiHelper do
       generated_deck = subject.generate_anki_deck("vocabulary", vocabulary)
       deck_lines = generated_deck.split("\n");
       expect(deck_lines[0]).to eq("# WaniKani - Vocabulary")
-      expect(deck_lines[3]).to eq("#type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
-      expect(deck_lines[4]).to eq("vocabulary;二;two;;;;;に;1")
-      expect(deck_lines[5]).to eq("vocabulary;入る;to enter;;;;;はいる;1")
+      expect(deck_lines[3]).to eq("#key;type;character;meaning;image;onyomi;kunyomi;important_reading;kana;level")
+      expect(deck_lines[4]).to eq("v_二;vocabulary;二;two;;;;;に;1")
+      expect(deck_lines[5]).to eq("v_入る;vocabulary;入る;to enter;;;;;はいる;1")
       expect(deck_lines.size).to eq(6)
     end
 

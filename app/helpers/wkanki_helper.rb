@@ -1,7 +1,7 @@
 module WkankiHelper
   @@WANIKANI_API = "1.2";
 
- @@HEADERS= ["type", "character", "meaning", "image", "onyomi", "kunyomi", "important_reading", "kana", "level"]
+  @@HEADERS= ["key", "type", "character", "meaning", "image", "onyomi", "kunyomi", "important_reading", "kana", "level"]
 
   def wkanki_headers()
     @@HEADERS

@@ -1,10 +1,16 @@
 require 'spec_helper'
 
 describe WanikaniApi do
-  let(:kanji_item) { { "type" => "kanji", "character" => "了", "meaning" => "finish, complete, end", "onyomi" => "りょう", "kunyomi" => nil, "important_reading" => "onyomi", "level" => 2, "percentage" => "72"} }
-  let(:vocabulary_item) { {"type" => "vocabulary", "character" => "伝説", "kana" => "でんせつ", "meaning" => "legend", "level" => 17, "percentage" => "72"} }
-  let(:radical_item) { {"type" => "radical", "character" => "貝", "meaning" => "clam", "image" => nil, "level" => 4, "percentage" => "75"} }
-  let(:items) { [kanji_item, vocabulary_item, radical_item] }
+  let(:kanji_item) { { "character" => "了", "meaning" => "finish, complete, end", "onyomi" => "りょう", "kunyomi" => nil, "important_reading" => "onyomi", "level" => 2, "percentage" => "72"} }
+  let(:vocabulary_item) { { "character" => "伝説", "kana" => "でんせつ", "meaning" => "legend", "level" => 17, "percentage" => "72"} }
+  let(:radical_item) { { "character" => "貝", "meaning" => "clam", "image" => nil, "level" => 4, "percentage" => "75"} }
+  let(:items) { 
+    items = [kanji_item.clone, vocabulary_item.clone, radical_item.clone] 
+    items[0]["type"] = "kanji"
+    items[1]["type"] = "vocabulary"
+    items[2]["type"] = "radical"
+    return items
+  }
   let(:level_params) { { selected_levels: "all" } }
 
   describe ".fetch_critical" do
@@ -32,10 +38,11 @@ describe WanikaniApi do
       allow(Wanikani::Level).to receive(:kanji).and_return([kanji_item])
     end
 
-    it "Adds type=kanji to result" do
+    it "Adds key and type=kanji to result" do
       kanjis = WanikaniApi.fetch_kanji(level_params)
       expect(kanjis.size).to eq(1)
       kanji = kanjis[0]
+      expect(kanji["key"]).to eq("k_了")
       expect(kanji["type"]).to eq("kanji")
       expect(kanji["character"]).to eq("了")
       expect(kanji["meaning"]).to eq("finish, complete, end")
@@ -53,10 +60,11 @@ describe WanikaniApi do
       allow(Wanikani::Level).to receive(:vocabulary).and_return([vocabulary_item])
     end
 
-    it "Adds type=vocabulary to results" do
+    it "Adds key and type=vocabulary to results" do
       vocabularys = WanikaniApi.fetch_vocabulary(level_params)
       expect(vocabularys.size).to eq(1)
       vocabulary = vocabularys[0]
+      expect(vocabulary["key"]).to eq("v_伝説")
       expect(vocabulary["type"]).to eq("vocabulary")
       expect(vocabulary["character"]).to eq("伝説")
       expect(vocabulary["kana"]).to eq("でんせつ")
@@ -72,10 +80,11 @@ describe WanikaniApi do
       allow(Wanikani::Level).to receive(:radicals).and_return([radical_item])
     end
 
-    it "Adds type=radical" do
+    it "Adds key and type=radical" do
       radicals = WanikaniApi.fetch_radicals(level_params)
       expect(radicals.size).to eq(1)
       radical = radicals[0]
+      expect(radical["key"]).to eq("r_clam")
       expect(radical["type"]).to eq("radical")
       expect(radical["character"]).to eq("貝")
       expect(radical["meaning"]).to eq("clam")
