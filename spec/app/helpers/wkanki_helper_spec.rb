@@ -32,9 +32,11 @@ describe WkankiHelper do
   end
 
   describe '#generate_anki_deck' do
+    # The following test fixtures are what the WanikaniApi will return and so need to have key and type included
     let(:recent_unlocks) {
       [
         {
+          "key" => "v_魚",
           "type" => "vocabulary",
           "character" => "魚",
           "kana" => "さかな",
@@ -43,6 +45,7 @@ describe WkankiHelper do
           "unlocked_date" => 1422401237
         },
         {
+          "key" => "k_失",
           "type" => "kanji",
           "character" => "失",
           "meaning" => "fault",
@@ -53,6 +56,7 @@ describe WkankiHelper do
           "unlocked_date" => 1422359898
         },
         {
+          "key" => "r_stamp",
           "type" => "radical",
           "character" => "卩",
           "meaning" => "stamp",
@@ -65,6 +69,7 @@ describe WkankiHelper do
     let(:critical_items) {
       [
         {
+          "key" => "r_raptor-cage",
           "type" => "radical",
           "character" => "久",
           "meaning" => "raptor-cage",
@@ -73,6 +78,7 @@ describe WkankiHelper do
           "percentage" => "79"
         },
         {
+          "key" => "v_入る",
           "type" => "vocabulary",
           "character" => "入る",
           "kana" => "はいる",
@@ -81,6 +87,7 @@ describe WkankiHelper do
           "percentage" => "85"
         },
         {
+          "key" => "k_九",
           "type" => "kanji",
           "character" => "九",
           "meaning" => "nine",
@@ -95,6 +102,7 @@ describe WkankiHelper do
     let(:radicals) {
       [
         {
+          "key" => "r_gun",
           "type" => "radical",
           "character" => nil,
           "meaning" => "gun",
@@ -102,6 +110,7 @@ describe WkankiHelper do
           "level" => 1
         },
         {
+          "key" => "r_small",
           "type" => "radical",
           "character" => "小",
           "meaning" => "small",
@@ -113,6 +122,7 @@ describe WkankiHelper do
     let(:kanji) {
       [
         {
+          "key" => "k_入",
           "type" => "kanji",
           "character" => "入",
           "meaning" => "enter",
@@ -122,6 +132,7 @@ describe WkankiHelper do
           "level" => 1
         },
         {
+          "key" => "k_工",
           "type" => "kanji",
           "character" => "工",
           "meaning" => "industry",
@@ -135,6 +146,7 @@ describe WkankiHelper do
     let(:vocabulary) {
       [
         {
+          "key" => "v_二",
           "type" => "vocabulary",
           "character" => "二",
           "kana" => "に",
@@ -142,6 +154,7 @@ describe WkankiHelper do
           "level" => 1
         },
         {
+          "key" => "v_入る",
           "type" => "vocabulary",
           "character" => "入る",
           "kana" => "はいる",
