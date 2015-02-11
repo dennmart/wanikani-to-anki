@@ -1,0 +1,17 @@
+#docs_section
+  .row.header-section.text-center
+    .col-md-4
+      h2 WaniKani to Anki Exporter
+    .col-md-4
+      h2= link_to 'Export', url_for(:export, :index)
+    .col-md-4.text-right
+      img src="images/wanikanitoanki_logo_sm.png" class="center-block img-responsive"
+
+  #docs_toc
+    .row
+      ul
+        li How to install into Anki
+
+  #docs_content
+    .row
+      =partial "docs/how_to_install_into_anki"

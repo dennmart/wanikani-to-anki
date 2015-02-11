@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    anki (0.0.2)
+    anki (0.0.3)
     capistrano (3.3.5)
       capistrano-stats (~> 1.1.0)
       i18n
@@ -144,7 +144,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  anki
+  anki (= 0.0.3)
   capistrano
   capistrano-bundler
   capistrano-newrelic

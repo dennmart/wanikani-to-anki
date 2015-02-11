@@ -2,59 +2,53 @@ class WanikaniApi
   def self.fetch_critical(params)
     percentage = params[:argument] || 75
     critical_items = Wanikani::CriticalItems.critical(percentage.to_i)
-    critical_items.map { |item| self.send("#{item["type"]}_type_to_string", item, params[:level_tags]) }.compact
+    self.add_keys(critical_items)
   end
 
   def self.fetch_kanji(params)
     kanji = Wanikani::Level.kanji(optional_argument(params))
-    kanji.map { |item| kanji_type_to_string(item, params[:level_tags]) }.compact
+    kanji.each { |item| item["type"] = "kanji" }
+    self.add_keys(kanji)
   end
 
   def self.fetch_vocabulary(params)
     vocabulary = Wanikani::Level.vocabulary(optional_argument(params))
-    vocabulary.map { |item| vocabulary_type_to_string(item, params[:level_tags]) }.compact
+    vocabulary.each { |item| item["type"] = "vocabulary" }
+    self.add_keys(vocabulary)
   end
 
   def self.fetch_radicals(params)
     radicals = Wanikani::Level.radicals(optional_argument(params))
-    radicals.map { |item| radical_type_to_string(item, params[:level_tags]) }.compact
+    radicals.each { |item| item["type"] = "radical" }
+    self.add_keys(radicals)
   end
 
   def self.fetch_burned(params)
     burned_items = Wanikani::SRS.items_by_type('burned')
-    burned_items.map { |item| self.send("#{item["type"]}_type_to_string", item, params[:level_tags]) }.compact
+    self.add_keys(burned_items)
   end
 
   def self.fetch_recent_unlocks(params)
     recent_unlocks = Wanikani::RecentUnlocks.list(100)
-    recent_unlocks.map { |item| self.send("#{item["type"]}_type_to_string", item, params[:level_tags]) }.compact
+    self.add_keys(recent_unlocks)
   end
 
   private
 
-  def self.kanji_type_to_string(item, level_tags)
-    reading = item["important_reading"]
-    front = item["character"]
-    back = "#{item[reading]} - #{item["meaning"]}"
-    back = build_level_tags(back, item["level"]) if level_tags
-    { front => back }
+  def self.add_key(item)
+    type = item["type"]
+    key1 = type[0,1]
+    if type == "radical"
+      key2 = item["meaning"]
+    else
+      key2 = item["character"]
+    end
+    item["key"] = "#{key1}_#{key2}"
   end
 
-  def self.vocabulary_type_to_string(item, level_tags)
-    front = item["character"]
-    back = "#{item["kana"]} - #{item["meaning"]}"
-    back = build_level_tags(back, item["level"]) if level_tags
-    { front => back }
-  end
-
-  def self.radical_type_to_string(item, level_tags)
-    # TODO: How to deal with radicals with images
-    return nil if item["character"].nil?
-
-    front = item["character"]
-    back = "#{item["meaning"]}"
-    back = build_level_tags(back, item["level"]) if level_tags
-    { front => back }
+  def self.add_keys(items)
+    return items if items.empty?
+    items.each { |item| self.add_key(item) }
   end
 
   def self.optional_argument(params)
@@ -65,7 +59,4 @@ class WanikaniApi
     end
   end
 
-  def self.build_level_tags(value, level)
-    { "value" => value, "tags" => ["Level#{level}"] }
-  end
 end

@@ -64,3 +64,7 @@ were looking for something similar, so I decided to share it as a website.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 6. That's it! High fives given upon request :smile_cat:
+
+## To run a single test
+
+Use rspec <path/to/spec.rbb>

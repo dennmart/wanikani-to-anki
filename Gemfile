@@ -8,7 +8,7 @@ gem 'dalli'
 gem 'newrelic_rpm'
 gem 'dotenv'
 gem 'wanikani'
-gem 'anki'
+gem 'anki', '0.0.3'
 gem 'padrino-contrib'
 gem 'yui-compressor', require: 'yui/compressor'
 

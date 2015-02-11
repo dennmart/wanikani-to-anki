@@ -35,7 +35,36 @@ describe "ExportController" do
     end
 
     it "prepares a plain text file ready to download" do
-      allow(WanikaniApi).to receive(:send).and_return([{ "了" => "りょう - finish, complete, end" }])
+      allow(WanikaniApi).to receive(:send).and_return(
+        [
+          {
+            "type" => "radical",
+            "character" => "久",
+            "meaning" => "raptor-cage",
+            "image" => nil,
+            "level" => 3,
+            "percentage" => "79"
+          },
+          {
+            "type" => "vocabulary",
+            "character" => "入る",
+            "kana" => "はいる",
+            "meaning" => "to enter",
+            "level" => 1,
+            "percentage" => "85"
+          },
+          {
+            "type" => "kanji",
+            "character" => "九",
+            "meaning" => "nine",
+            "onyomi" => "く, きゅう",
+            "kunyomi" => "ここの.*",
+            "important_reading" => "onyomi",
+            "level" => 1,
+            "percentage" => "87"
+          }
+        ]
+      )
       post "/export/generate", deck_type: "critical"
       expect(last_response["Content-Type"]).to eq("text/plain;charset=utf-8")
     end
