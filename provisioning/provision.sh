@@ -4,7 +4,7 @@ echo "Updating apt..."
 sudo apt-get update -y -qq > /dev/null
 
 echo "Installing required libraries for the app..."
-sudo apt-get -y -q install ruby-dev > /dev/null
+sudo apt-get -y -q install ruby-dev zlib1g-dev > /dev/null
 
 cd /vagrant
 
@@ -15,4 +15,4 @@ echo "Installing Ruby gems (this may take a while)..."
 bundle install --quiet > /dev/null
 
 echo "Starting up WaniKani To Anki..."
-rackup -D
+rackup -D -o 0.0.0.0
