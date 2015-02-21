@@ -1,13 +1,13 @@
 lock '3.3.5'
 
-set :application, 'wkanki'
-set :repo_url, 'git@github.com:dennmart/wkanki.git'
+set :application, 'wanikani-to-anki'
+set :repo_url, 'https://github.com/dennmart/wanikani-to-anki.git'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/srv/wkanki'
+set :deploy_to, '/srv/wanikani-to-anki'
 
 # Default value for :scm is :git
 set :scm, :git
