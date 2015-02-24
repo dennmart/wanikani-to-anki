@@ -11,3 +11,5 @@ public/stylesheets/wkanki
 public/javascripts/wkanki
 .vagrant
 .ruby-version
+config/deploy.rb
+config/deploy/*
