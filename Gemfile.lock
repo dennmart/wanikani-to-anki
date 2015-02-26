@@ -7,7 +7,11 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    airbrake (4.1.0)
+      builder
+      multi_json
     anki (0.0.3)
+    builder (3.2.2)
     capistrano (3.3.5)
       capistrano-stats (~> 1.1.0)
       i18n
@@ -145,6 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   anki (= 0.0.3)
   capistrano
   capistrano-bundler

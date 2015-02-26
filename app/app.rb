@@ -12,6 +12,14 @@ module Wkanki
       register Padrino::Contrib::Helpers::AssetsCompressor
       enable :caching
       set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new)
+
+      Airbrake.configure do |config|
+        config.api_key = ENV['AIRBRAKE_API_KEY']
+        config.host    = ENV['AIRBRAKE_HOST']
+        config.port    = 443
+        config.secure  = config.port == 443
+      end
+      use Airbrake::Sinatra
     end
     ##
     # Application configuration options.

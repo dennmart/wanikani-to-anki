@@ -11,6 +11,7 @@ gem 'wanikani'
 gem 'anki', '0.0.3'
 gem 'padrino-contrib'
 gem 'yui-compressor', require: 'yui/compressor'
+gem 'airbrake'
 
 # Deployment gems
 gem 'capistrano'
