@@ -10,10 +10,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Provisioning is done by default via the shell.
   config.vm.provision "shell", path: "provisioning/provision.sh"
-
-  # If you prefer to use Ansible for provisioning, you should comment the shell
-  # provisioning line and uncomment the following lines.
-  #config.vm.provision "ansible" do |ansible|
-  #  ansible.playbook = "provisioning/playbook.yml"
-  #end
 end
