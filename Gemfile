@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'padrino', '0.12.5'
+gem 'padrino', '0.13.0'
 gem 'rake'
 gem 'sass'
 gem 'slim'
