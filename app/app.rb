@@ -11,7 +11,7 @@ module Wkanki
     configure :production do
       register Padrino::Contrib::Helpers::AssetsCompressor
       enable :caching
-      set :cache, Padrino::Cache.new(:Memcached, :server => ENV['MEMCACHED_URL'], :backend => Dalli::Client.new)
+      set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new(ENV['MEMCACHED_URL']))
 
       Airbrake.configure do |config|
         config.api_key = ENV['AIRBRAKE_API_KEY']
