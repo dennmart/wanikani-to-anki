@@ -15,12 +15,6 @@ gem 'yui-compressor', require: 'yui/compressor'
 gem 'airbrake'
 gem 'puma'
 
-# Deployment gems
-gem 'capistrano'
-gem 'capistrano-rbenv'
-gem 'capistrano-bundler'
-gem 'capistrano-newrelic'
-
 group :test do
   gem 'rspec'
   gem 'rack-test', require: 'rack/test'
