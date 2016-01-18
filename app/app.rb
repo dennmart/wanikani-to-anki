@@ -14,12 +14,18 @@ module Wkanki
       set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new(ENV['MEMCACHED_URL']))
 
       Airbrake.configure do |config|
-        config.api_key = ENV['AIRBRAKE_API_KEY']
-        config.host    = ENV['AIRBRAKE_HOST']
-        config.port    = 443
-        config.secure  = config.port == 443
-        config.ignore << "Sinatra::NotFound"
+        config.project_key         = ENV['WKANKI_AIRBRAKE_API'] || "airbrake-api-key"
+        config.project_id          = true
+        config.host                = ENV['WKANKI_AIRBRAKE_HOST'] || "https://test.airbrake.io/"
+        config.ignore_environments = %w(development test)
       end
+
+      Airbrake.add_filter do |notice|
+        if notice[:errors].any? { |error| error[:type] == 'Sinatra::NotFound' }
+          notice.ignore!
+        end
+      end
+
       use Airbrake::Sinatra
     end
     ##
