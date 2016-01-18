@@ -26,7 +26,7 @@ module Wkanki
         end
       end
 
-      use Airbrake::Sinatra
+      use Airbrake::Rack::Middleware
     end
     ##
     # Application configuration options.
