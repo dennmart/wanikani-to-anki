@@ -23,7 +23,6 @@ GEM
     diff-lcs (1.2.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.1.0)
     enumerable-lazy (0.0.1)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -133,7 +132,6 @@ DEPENDENCIES
   anki (= 0.0.3)
   capybara
   dalli
-  dotenv
   newrelic_rpm
   padrino (= 0.13.1)
   padrino-contrib
