@@ -17,6 +17,7 @@ module Wkanki
         config.project_key         = ENV['WKANKI_AIRBRAKE_API'] || "airbrake-api-key"
         config.project_id          = true
         config.host                = ENV['WKANKI_AIRBRAKE_HOST'] || "https://test.airbrake.io/"
+        config.environment         = ENV['RACK_ENV'] || "development"
         config.ignore_environments = %w(development test)
       end
 
