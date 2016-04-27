@@ -8,7 +8,7 @@ server {
   listen      [::]:{{ .NGINX_PORT }};
   listen      {{ .NGINX_PORT }};
   server_name  www.wanikanitoanki.com;
-  return       301 https://wanikanitoanki.com\$request_uri;
+  return       301 https://wanikanitoanki.com$request_uri;
 }
 
 server {
