@@ -10,7 +10,6 @@ module Wkanki
 
     configure :production do
       register Padrino::Contrib::Helpers::AssetsCompressor
-      set :sessions, :domain => 'wanikanitoanki.com'
       enable :caching
       set :cache, Padrino::Cache.new(:Memcached, :backend => Dalli::Client.new(ENV['MEMCACHED_URL']))
 
