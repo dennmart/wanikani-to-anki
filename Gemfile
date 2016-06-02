@@ -14,6 +14,10 @@ gem 'yui-compressor', '~> 0.12.0', require: 'yui/compressor'
 gem 'airbrake', '~> 5.3.0'
 gem 'puma', '~> 3.4.0'
 
+group :development, :test do
+  gem 'rubocop', '~> 0.40.0', require: false
+end
+
 group :test do
   gem 'rspec', '~> 3.4.0'
   gem 'rack-test', '~> 0.6.3', require: 'rack/test'
