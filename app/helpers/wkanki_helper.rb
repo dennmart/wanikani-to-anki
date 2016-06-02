@@ -1,15 +1,5 @@
 module WkankiHelper
-  @@WANIKANI_API = "1.2";
-
-  @@HEADERS= ["key", "type", "character", "meaning", "image", "onyomi", "kunyomi", "important_reading", "kana", "level"]
-
-  def wkanki_headers()
-    @@HEADERS
-  end
-
-  def set_api_key(api_key)
-    Wanikani.api_key = api_key
-  end
+  HEADERS = %w(key type character meaning image onyomi kunyomi important_reading kana level).freeze
 
   def wanikani_user
     return nil if Wanikani.api_key.blank?
@@ -19,9 +9,8 @@ module WkankiHelper
   end
 
   def generate_anki_deck(type, cards)
-    anki = Anki::Deck.new(card_headers: wkanki_headers, card_data: cards)
-    deck = deck_comments_header(type)
-    deck += anki.generate_deck
+    anki = Anki::Deck.new(card_headers: HEADERS, card_data: cards)
+    deck_comments_header(type) + anki.generate_deck
   end
 
   private

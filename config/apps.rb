@@ -28,9 +28,9 @@
 Padrino.configure_apps do
   # enable :sessions
   set :session_secret, ENV['SESSION_SECRET'] || 'cd89a4ebe8801dfd0c7d657bad04ec6c220e342286ffb7b423ee38d9608a8a04'
-  set :protection, :except => :path_traversal
+  set :protection, except: :path_traversal
   set :protect_from_csrf, true
 end
 
 # Mounts the core application for this project
-Padrino.mount('Wkanki::App', :app_file => Padrino.root('app/app.rb')).to('/')
+Padrino.mount('Wkanki::App', app_file: Padrino.root('app/app.rb')).to('/')

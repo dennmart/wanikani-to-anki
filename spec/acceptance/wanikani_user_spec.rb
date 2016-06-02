@@ -8,13 +8,13 @@ describe 'WaniKani User' do
       visit '/'
     end
 
-    it "displays an error message if the API key is invalid" do
-       fill_in 'wanikani_api_key', with: 'invalid-api-key'
-       click_button 'Let\'s Go!'
-       expect(page).to have_content('Bummer...')
+    it 'displays an error message if the API key is invalid' do
+      fill_in 'wanikani_api_key', with: 'invalid-api-key'
+      click_button 'Let\'s Go!'
+      expect(page).to have_content('Bummer...')
     end
 
-    it "logs in successfully if the API key is valid and displays the user name" do
+    it 'logs in successfully if the API key is valid and displays the user name' do
       fill_in 'wanikani_api_key', with: valid_api_key
       click_button 'Let\'s Go!'
       expect(page).to have_content('Hi, koichi!')

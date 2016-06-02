@@ -1,14 +1,14 @@
-RACK_ENV = 'test' unless defined?(RACK_ENV)
-require File.expand_path(File.dirname(__FILE__) + "/../config/boot")
-require File.dirname(__FILE__) + "/../app/helpers/wanikani_api"
-require File.dirname(__FILE__) + "/../app/helpers/wkanki_helper"
+RACK_ENV = 'test'.freeze unless defined?(RACK_ENV)
+require File.expand_path(File.dirname(__FILE__) + '/../config/boot')
+require File.dirname(__FILE__) + '/../app/helpers/wanikani_api'
+require File.dirname(__FILE__) + '/../app/helpers/wkanki_helper'
 
 require 'capybara'
 require 'capybara/dsl'
 
 Capybara.app = Wkanki::App
 Capybara.register_driver :rack_test do |app|
-  Capybara::RackTest::Driver.new(app, :respect_data_method => true)
+  Capybara::RackTest::Driver.new(app, respect_data_method: true)
 end
 
 RSpec.configure do |conf|
@@ -34,6 +34,6 @@ end
 # allow us to get session information in our tests.
 def decode_session_cookie(cookie)
   encoded_cookie_str = cookie.match(/rack\.session=(\S*);/)[1]
-  data = Rack::Utils.unescape(encoded_cookie_str).unpack("m*").first
+  data = Rack::Utils.unescape(encoded_cookie_str).unpack('m*').first
   Marshal.load(data)
 end

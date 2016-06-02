@@ -1,6 +1,6 @@
 Wkanki::App.controllers :export do
   before do
-    set_api_key(session[:wanikani_api_key])
+    Wanikani.api_key = session[:wanikani_api_key]
   end
 
   get :index do
@@ -11,13 +11,13 @@ Wkanki::App.controllers :export do
   post :generate do
     begin
       cards = WanikaniApi.send("fetch_#{params[:deck_type]}", params)
-    rescue Exception => e
+    rescue StandardError => e
       flash[:error] = "Whoops! WaniKani sent us the following error message: #{e.message}"
       redirect url(:export, :index)
     end
 
     if cards.blank?
-      flash[:error] = "There were no items to export! Try changing the parameters for the deck, or try exporting a different deck."
+      flash[:error] = 'There were no items to export! Try changing the parameters for the deck, or try exporting a different deck.'
       redirect url(:export, :index)
     else
       content_type 'text/plain', charset: 'utf-8'

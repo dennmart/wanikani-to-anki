@@ -4,6 +4,6 @@ Wkanki::App.controllers :home do
   end
 
   get :raise_error, map: '/raise_error' do
-    raise "Testing raised errors!"
+    raise 'Testing raised errors!'
   end
 end
