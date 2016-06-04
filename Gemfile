@@ -16,6 +16,7 @@ gem 'puma', '~> 3.4.0'
 
 group :development, :test do
   gem 'rubocop', '~> 0.40.0', require: false
+  gem 'fasterer', '~> 0.3.2', require: false
 end
 
 group :test do
