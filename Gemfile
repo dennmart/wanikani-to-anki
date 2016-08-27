@@ -15,11 +15,11 @@ gem 'airbrake', '~> 5.3.0'
 gem 'puma', '~> 3.4.0'
 
 group :development, :test do
-  gem 'pronto', '~> 0.6.0'
-  gem 'rubocop', '~> 0.40.0', require: false
-  gem 'pronto-rubocop', '~> 0.6.2', require: false
+  gem 'pronto', '~> 0.7.0'
+  gem 'rubocop', '~> 0.42.0', require: false
+  gem 'pronto-rubocop', '~> 0.7.0', require: false
   gem 'fasterer', '~> 0.3.2', require: false
-  gem 'pronto-fasterer', '~> 0.6.1', require: false
+  gem 'pronto-fasterer', '~> 0.7.0', require: false
 end
 
 group :test do
