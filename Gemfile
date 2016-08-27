@@ -2,17 +2,17 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'padrino', '0.13.3'
-gem 'rake', '~> 11.1.2'
+gem 'rake', '~> 11.2.2'
 gem 'sass', '~> 3.4.22'
 gem 'slim', '~> 3.0.6'
 gem 'dalli', '~> 2.7.6'
-gem 'newrelic_rpm', '~> 3.15.2'
+gem 'newrelic_rpm', '~> 3.16.2'
 gem 'wanikani', '~> 1.4'
 gem 'anki', '0.0.4'
 gem 'padrino-contrib', '~> 0.2.0'
 gem 'yui-compressor', '~> 0.12.0', require: 'yui/compressor'
-gem 'airbrake', '~> 5.3.0'
-gem 'puma', '~> 3.4.0'
+gem 'airbrake', '~> 5.4.5'
+gem 'puma', '~> 3.6.0'
 
 group :development, :test do
   gem 'pronto', '~> 0.7.0'
@@ -25,5 +25,5 @@ end
 group :test do
   gem 'rspec', '~> 3.5.0'
   gem 'rack-test', '~> 0.6.3', require: 'rack/test'
-  gem 'capybara', '~> 2.7.1'
+  gem 'capybara', '~> 2.8.1'
 end
