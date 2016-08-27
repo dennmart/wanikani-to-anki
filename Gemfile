@@ -13,6 +13,7 @@ gem 'padrino-contrib', '~> 0.2.0'
 gem 'yui-compressor', '~> 0.12.0', require: 'yui/compressor'
 gem 'airbrake', '~> 5.4.5'
 gem 'puma', '~> 3.6.0'
+gem 'activesupport', '~> 4.2.7'
 
 group :development, :test do
   gem 'pronto', '~> 0.7.0'
