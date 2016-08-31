@@ -159,7 +159,7 @@ GEM
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicode-display_width (1.1.0)
-    wanikani (1.4)
+    wanikani (1.4.1)
       faraday (~> 0.9)
       faraday_middleware (~> 0.10)
     xpath (2.0.0)
@@ -189,7 +189,7 @@ DEPENDENCIES
   rubocop (~> 0.42.0)
   sass (~> 3.4.22)
   slim (~> 3.0.6)
-  wanikani (~> 1.4)
+  wanikani (~> 1.4.1)
   yui-compressor (~> 0.12.0)
 
 RUBY VERSION
