@@ -37,17 +37,24 @@ That should be all! If you go to http://localhost:9292 after that, the site shou
 Currently there's no database required, but that might change in the future as I expand the
 site's functionality.
 
-## Vagrant
+## Docker
 
-If you have [Vagrant](https://www.vagrantup.com/) installed, I included a simple Vagrantfile that will set up an environment
-and automatically run the WaniKani to Anki Exporter site in an Ubuntu 14.04 virtual machine on
-your local machine. By simply running `vagrant up`, you should be able to go to http://localhost:9292
-and see the site.
+If you have [Docker](https://www.docker.com/) installed in your local environment, use the
+included Dockerfile to build a Docker image that will run the WaniKani to Anki Exporter site
+on your system for development purposes.
 
-By default, the provisioning is done using a [shell script](https://github.com/dennmart/wanikani-to-anki/blob/master/provisioning/provision.sh)
-that I have included in the repository. If you prefer to use [Ansible](http://www.ansible.com/home) as
-your primary automation tool, I also included an [Ansible playbook](https://github.com/dennmart/wanikani-to-anki/blob/master/provisioning/playbook.yml)
-that you can use instead. You will have to modify the Vagrantfile to use Ansible instead.
+After building the image (assuming the naming convention `<image_name>:<image_tag>`), you can
+run the WaniKani to Anki Exporter site:
+
+```
+docker run \
+  -p 9292:9292 \
+  -v $PWD:/app \
+  <image_name>:<image_tag>
+```
+
+Alternatively, if you have [Docker Compose](https://docs.docker.com/compose/) installed, you
+can simply run `docker-compose up` to build and run
 
 ## Why did I build this?
 
