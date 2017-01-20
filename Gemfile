@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-gem 'padrino', '0.13.3.3'
+gem 'padrino', '0.14.0.rc2'
 gem 'rake'
 gem 'sass', '~> 3.4.22'
 gem 'slim', '~> 3.0.6'
