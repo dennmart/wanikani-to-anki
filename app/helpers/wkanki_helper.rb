@@ -1,8 +1,12 @@
 module WkankiHelper
   HEADERS = %w(key type character meaning image onyomi kunyomi important_reading kana level).freeze
 
+  def api_key_missing?(api_key)
+    api_key.nil? || api_key.empty? || api_key.match(/\A[[:space:]]*\z/)
+  end
+
   def wanikani_user
-    return nil if Wanikani.api_key.blank?
+    return nil if api_key_missing?(Wanikani.api_key)
     cache_object("wanikani/user/#{Wanikani.api_key}", expires: 300) do
       Wanikani::User.information
     end

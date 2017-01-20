@@ -23,7 +23,7 @@ describe 'ExportController' do
   describe '/export/generate' do
     it 'calls WanikaniApi.fetch_* using the deck type and params' do
       params = { 'deck_type' => 'critical', 'argument' => '85' }
-      expect(WanikaniApi).to receive(:send).with('fetch_critical', params)
+      expect(WanikaniApi).to receive(:send).with('fetch_critical', params).and_return([{"type" => "vocabulary", "character" => "地下", "kana" => "ちか"}])
       post '/export/generate', params
     end
 

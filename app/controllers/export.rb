@@ -4,7 +4,7 @@ Wkanki::App.controllers :export do
   end
 
   get :index do
-    redirect url(:home, :index) if session[:wanikani_api_key].blank?
+    redirect url(:home, :index) if api_key_missing?(session[:wanikani_api_key])
     render 'export/index'
   end
 
@@ -16,7 +16,7 @@ Wkanki::App.controllers :export do
       redirect url(:export, :index)
     end
 
-    if cards.blank?
+    if cards.empty?
       flash[:error] = 'There were no items to export! Try changing the parameters for the deck, or try exporting a different deck.'
       redirect url(:export, :index)
     else
