@@ -43,7 +43,6 @@ GEM
     multipart-post (2.0.0)
     mustermann19 (0.4.4)
       enumerable-lazy
-    newrelic_rpm (3.18.1.330)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     octokit (4.6.2)
@@ -164,7 +163,6 @@ DEPENDENCIES
   capybara (~> 2.12.1)
   dalli (~> 2.7.6)
   fasterer (~> 0.3.2)
-  newrelic_rpm (~> 3.18)
   padrino (= 0.14.0.1)
   padrino-contrib (~> 0.2.0)
   pronto (~> 0.8.1)
