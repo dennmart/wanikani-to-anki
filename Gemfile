@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.3'
+ruby '2.4.1'
 
 gem 'airbrake', '~> 5.7.1'
 gem 'anki', '0.0.4'
