@@ -1,4 +1,4 @@
-FROM ruby:2.3.3
+FROM ruby:2.4.1
 RUN apt-get update && apt-get -y install cmake
 
 WORKDIR /tmp
