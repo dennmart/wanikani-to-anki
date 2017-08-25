@@ -15,10 +15,10 @@ gem 'yui-compressor', '~> 0.12.0', require: 'yui/compressor'
 
 group :development, :test do
   gem 'fasterer', '~> 0.3.2', require: false
-  gem 'pronto', '~> 0.8.2'
-  gem 'pronto-fasterer', '~> 0.8.1', require: false
-  gem 'pronto-rubocop', '~> 0.8.0', require: false
-  gem 'rubocop', '~> 0.47.1', require: false
+  gem 'pronto', '~> 0.9.5'
+  gem 'pronto-fasterer', '~> 0.9.0', require: false
+  gem 'pronto-rubocop', '~> 0.9.0', require: false
+  gem 'rubocop', '~> 0.49.1', require: false
 end
 
 group :test do
