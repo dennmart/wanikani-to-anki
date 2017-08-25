@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
 
-gem 'airbrake', '~> 6.0.0'
+gem 'airbrake', '~> 6.2'
 gem 'anki', '0.0.4'
 gem 'dalli', '~> 2.7.6'
 gem 'padrino', '0.14.1.1'
 gem 'rake'
-gem 'sass', '~> 3.4.22'
+gem 'sass', '~> 3.5'
 gem 'slim', '~> 3.0.6'
 gem 'padrino-contrib', '~> 0.2.0'
-gem 'puma', '~> 3.8.2'
+gem 'puma', '~> 3.10'
 gem 'wanikani', '~> 1.4.1'
 gem 'yui-compressor', '~> 0.12.0', require: 'yui/compressor'
 
@@ -22,7 +22,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 2.13.0'
-  gem 'rack-test', '~> 0.6.3', require: 'rack/test'
-  gem 'rspec', '~> 3.5.0'
+  gem 'capybara', '~> 2.15'
+  gem 'rack-test', '~> 0.7', require: 'rack/test'
+  gem 'rspec', '~> 3.6'
 end
