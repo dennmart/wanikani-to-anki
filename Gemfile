@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
 
+gem 'activesupport', '< 5'
 gem 'airbrake', '~> 6.2'
 gem 'anki', '0.0.4'
 gem 'dalli', '~> 2.7.6'

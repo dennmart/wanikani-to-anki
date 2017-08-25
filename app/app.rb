@@ -1,3 +1,6 @@
+require 'active_support/core_ext/module/aliasing'
+require 'active_support/core_ext/hash/reverse_merge'
+
 module Wkanki
   class App < Padrino::Application
     register Padrino::Rendering
