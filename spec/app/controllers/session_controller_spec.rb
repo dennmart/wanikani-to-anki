@@ -12,7 +12,7 @@ describe 'SessionController' do
 
     context 'with valid key' do
       before(:each) do
-        expect(Wanikani).to receive(:valid_api_key?).and_return(true)
+        expect(Wanikani::Client).to receive(:valid_api_key?).and_return(true)
         post '/login', wanikani_api_key: 'valid-api-key'
       end
 
@@ -29,7 +29,7 @@ describe 'SessionController' do
 
     context 'with invalid key' do
       before(:each) do
-        expect(Wanikani).to receive(:valid_api_key?).and_return(false)
+        expect(Wanikani::Client).to receive(:valid_api_key?).and_return(false)
         post '/login', wanikani_api_key: 'invalid-api-key'
       end
 

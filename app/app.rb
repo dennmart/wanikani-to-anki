@@ -10,12 +10,12 @@ module Wkanki
     register Padrino::Cache
     register SassInitializer
     enable :sessions
+    enable :caching
 
     set :protect_from_csrf, false
 
     configure :production do
       register Padrino::Contrib::Helpers::AssetsCompressor
-      enable :caching
       set :cache, Padrino::Cache.new(:Memcached, backend: Dalli::Client.new(ENV['MEMCACHED_URL']))
 
       Airbrake.configure do |config|

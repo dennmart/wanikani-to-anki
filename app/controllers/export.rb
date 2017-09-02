@@ -1,16 +1,14 @@
 Wkanki::App.controllers :export do
-  before do
-    Wanikani.api_key = session[:wanikani_api_key]
-  end
-
   get :index do
     redirect url(:home, :index) if api_key_missing?(session[:wanikani_api_key])
+    @wanikani_user = wanikani_user(session[:wanikani_api_key])
     render 'export/index'
   end
 
   post :generate do
     begin
-      cards = WanikaniApi.send("fetch_#{params[:deck_type]}", params)
+      wanikani_api = WanikaniApi.new(session[:wanikani_api_key])
+      cards = wanikani_api.send("fetch_#{params[:deck_type]}", params)
     rescue StandardError => e
       flash[:error] = "Whoops! WaniKani sent us the following error message: #{e.message}"
       redirect url(:export, :index)

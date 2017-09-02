@@ -11,7 +11,7 @@ gem 'sass', '~> 3.5'
 gem 'slim', '~> 3.0.6'
 gem 'padrino-contrib', '~> 0.2.0'
 gem 'puma', '~> 3.10'
-gem 'wanikani', '~> 1.5'
+gem 'wanikani', '~> 2.0.0'
 gem 'yui-compressor', '~> 0.12.0', require: 'yui/compressor'
 
 group :development, :test do

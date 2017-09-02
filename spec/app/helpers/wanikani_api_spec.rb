@@ -12,33 +12,34 @@ describe WanikaniApi do
     return items
   end
   let(:level_params) { { selected_levels: 'all' } }
+  let(:api_helper) { WanikaniApi.new("my-api-key") }
 
-  describe '.fetch_critical' do
+  describe '#fetch_critical' do
     let(:params) { { argument: 60 } }
 
     it 'sets the max percentage for fetching critical items if the object has its optional argument set' do
-      expect(Wanikani::CriticalItems).to receive(:critical).with(60).and_return([])
-      WanikaniApi.fetch_critical(params)
+      expect_any_instance_of(Wanikani::Client).to receive(:critical_items).with(60).and_return([])
+      api_helper.fetch_critical(params)
     end
 
     it "uses a default max percentage of 75 if the object doesn't have optional arguments set" do
-      expect(Wanikani::CriticalItems).to receive(:critical).with(75).and_return([])
-      WanikaniApi.fetch_critical({})
+      expect_any_instance_of(Wanikani::Client).to receive(:critical_items).with(75).and_return([])
+      api_helper.fetch_critical({})
     end
 
     it 'iterates through critical items array and calls methods according to the type' do
-      allow(Wanikani::CriticalItems).to receive(:critical).and_return(items)
-      WanikaniApi.fetch_critical(params)
+      allow_any_instance_of(Wanikani::Client).to receive(:critical_items).and_return(items)
+      api_helper.fetch_critical(params)
     end
   end
 
-  describe '.fetch_kanji' do
+  describe '#fetch_kanji' do
     before(:each) do
-      allow(Wanikani::Level).to receive(:kanji).and_return([kanji_item])
+      allow_any_instance_of(Wanikani::Client).to receive(:kanji_list).and_return([kanji_item])
     end
 
     it 'Adds key and type=kanji to result' do
-      kanjis = WanikaniApi.fetch_kanji(level_params)
+      kanjis = api_helper.fetch_kanji(level_params)
       expect(kanjis.size).to eq(1)
       kanji = kanjis[0]
       expect(kanji['key']).to eq("k_了")
@@ -53,13 +54,13 @@ describe WanikaniApi do
     end
   end
 
-  describe '.fetch_vocabulary' do
+  describe '#fetch_vocabulary' do
     before(:each) do
-      allow(Wanikani::Level).to receive(:vocabulary).and_return([vocabulary_item])
+      allow_any_instance_of(Wanikani::Client).to receive(:vocabulary_list).and_return([vocabulary_item])
     end
 
     it 'Adds key and type=vocabulary to results' do
-      vocabularys = WanikaniApi.fetch_vocabulary(level_params)
+      vocabularys = api_helper.fetch_vocabulary(level_params)
       expect(vocabularys.size).to eq(1)
       vocabulary = vocabularys[0]
       expect(vocabulary['key']).to eq("v_伝説")
@@ -74,11 +75,11 @@ describe WanikaniApi do
 
   describe '.fetch_radicals' do
     before(:each) do
-      allow(Wanikani::Level).to receive(:radicals).and_return([radical_item])
+      allow_any_instance_of(Wanikani::Client).to receive(:radicals_list).and_return([radical_item])
     end
 
     it 'Adds key and type=radical' do
-      radicals = WanikaniApi.fetch_radicals(level_params)
+      radicals = api_helper.fetch_radicals(level_params)
       expect(radicals.size).to eq(1)
       radical = radicals[0]
       expect(radical['key']).to eq('r_clam')

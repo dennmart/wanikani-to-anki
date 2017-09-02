@@ -6,16 +6,18 @@ describe WkankiHelper do
   end
 
   describe '#wanikani_user' do
-    it 'returns nil if the API key is not set' do
-      Wanikani.api_key = nil
-      expect(subject.wanikani_user).to be_nil
+    it 'returns nil if the API key is blank' do
+      expect(subject.wanikani_user("")).to be_nil
+    end
+
+    it 'returns nil if the API key is nil' do
+      expect(subject.wanikani_user(nil)).to be_nil
     end
 
     it 'should hit the cache if the API key is set' do
-      Wanikani.api_key = 'valid-api-key'
       returned_user = { 'user_information' => { 'username' => 'dennmart' } }
       expect(subject).to receive(:cache_object).with('wanikani/user/valid-api-key', expires: 300).and_return(returned_user)
-      expect(subject.wanikani_user).to eq(returned_user)
+      expect(subject.wanikani_user("valid-api-key")).to eq(returned_user)
     end
   end
 

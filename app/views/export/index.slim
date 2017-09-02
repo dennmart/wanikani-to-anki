@@ -9,11 +9,11 @@
 
   #user_info.row
     .col-md-12.text-center
-      img src="https://secure.gravatar.com/avatar/#{wanikani_user["gravatar"]}?s=100" class="img-circle"
+      img src="https://secure.gravatar.com/avatar/#{@wanikani_user["gravatar"]}?s=100" class="img-circle"
       p.text-center
-        strong.username Hi, #{wanikani_user["username"]}!
+        strong.username Hi, #{@wanikani_user["username"]}!
         br
-        small.logout_link= link_to("(Not #{wanikani_user["username"]}?)", '/logout', method: :delete)
+        small.logout_link= link_to("(Not #{@wanikani_user["username"]}?)", '/logout', method: :delete)
 
   #export_section_items
     .row
@@ -26,7 +26,7 @@
 
     .row
       - %w(kanji vocabulary radicals).each do |type|
-        .col-md-4.export-section== partial "export/full_lists_form", locals: { type: type }
+        .col-md-4.export-section== partial "export/full_lists_form", locals: { type: type, level: @wanikani_user["level"] }
 
     .row
       .col-md-12.top-buffer.hidden-xs

@@ -5,10 +5,11 @@ module WkankiHelper
     api_key.nil? || api_key.empty? || api_key.match(/\A[[:space:]]*\z/)
   end
 
-  def wanikani_user
-    return nil if api_key_missing?(Wanikani.api_key)
-    cache_object("wanikani/user/#{Wanikani.api_key}", expires: 300) do
-      Wanikani::User.information
+  def wanikani_user(api_key)
+    return nil if api_key_missing?(api_key)
+    cache_object("wanikani/user/#{api_key}", expires: 300) do
+      @client = Wanikani::Client.new(api_key: api_key)
+      @client.user_information
     end
   end
 
