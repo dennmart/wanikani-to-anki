@@ -27,7 +27,7 @@ describe 'WaniKani User' do
       fill_in 'wanikani_api_key', with: valid_api_key
       click_button 'Let\'s Go!'
       click_link '(Not koichi?)'
-      expect(page).to have_content('Enter your WaniKani API key to get started')
+      expect(page).to have_content('Enter your WaniKani API Version 1 key to get started')
     end
   end
 end
