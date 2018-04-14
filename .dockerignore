@@ -1,0 +1,8 @@
+.git
+.gitignore
+log/*
+tmp/*
+.sass-cache/*
+.*.sw*
+public/stylesheets/wkanki
+public/javascripts/wkanki
