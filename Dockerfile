@@ -1,7 +1,9 @@
-FROM ruby:2.5.1
+FROM ruby:2.5.1-slim
 RUN apt-get update && apt-get -y install cmake
 
+COPY Gemfile* /app/
 WORKDIR /app
-ADD . /app
 RUN bundle install
-CMD ["rackup", "-o", "0.0.0.0"]
+
+COPY . /app/
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
