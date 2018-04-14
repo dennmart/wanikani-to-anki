@@ -1,4 +1,4 @@
-FROM ruby:2.4.2
+FROM ruby:2.5.1
 RUN apt-get update && apt-get -y install cmake
 
 WORKDIR /app
