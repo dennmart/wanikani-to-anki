@@ -14,16 +14,8 @@ gem 'puma', '~> 3.10'
 gem 'wanikani', '~> 2.0.0'
 gem 'yui-compressor', '~> 0.12.0', require: 'yui/compressor'
 
-group :development, :test do
-  gem 'fasterer', '~> 0.3.2', require: false
-  gem 'pronto', '~> 0.9.5'
-  gem 'pronto-fasterer', '~> 0.9.0', require: false
-  gem 'pronto-rubocop', '~> 0.9.0', require: false
-  gem 'rubocop', '~> 0.49.1', require: false
-end
-
 group :test do
-  gem 'capybara', '~> 2.15'
-  gem 'rack-test', '~> 0.7', require: 'rack/test'
-  gem 'rspec', '~> 3.6'
+  gem 'capybara', '~> 3.0.2'
+  gem 'rack-test', '~> 1.0.0', require: 'rack/test'
+  gem 'rspec', '~> 3.7.0'
 end
