@@ -4,3 +4,5 @@ rvm:
   - 2.5.1
 services:
   - memcached
+before_install:
+  - gem install bundler
