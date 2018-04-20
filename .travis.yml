@@ -4,6 +4,3 @@ rvm:
   - 2.5.1
 services:
   - memcached
-notifications:
-  email:
-    - travisci@dennmart.com
