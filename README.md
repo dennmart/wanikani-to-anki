@@ -11,31 +11,25 @@ You will need a WaniKani API key to see all the functionality built in.
 
 ## Prerequisites
 
-1. Ruby 2.2.0 https://www.ruby-lang.org/en/
-
-Install as per your operating system instructions.
-
-2. Bundler http://bundler.io/
-
-```
-gem install bundler
-```
+- Install [Ruby 2.5.1](https://www.ruby-lang.org/en/).
+- Install [Bundler](http://bundler.io/) (`gem install bundler`).
 
 ## How to run the website
 
-The WaniKani to Anki Exporter site is a [Padrino](http://www.padrinorb.com/) app.
-
-Getting the site up and running is very simple.
-In the project's directory, run the following:
+- Install the project's dependencies:
 
 ```
-$ bundle install
-$ rackup
+bundle install
 ```
 
-That should be all! If you go to http://localhost:9292 after that, the site should be working.
-Currently there's no database required, but that might change in the future as I expand the
-site's functionality.
+- Run the web server:
+
+```
+puma -C config/puma.rb
+```
+
+That should be all! If you go to http://localhost:3000 after that, the site should be working.
+Currently there's no database required, but that might change in the future.
 
 ## Docker
 
@@ -43,18 +37,29 @@ If you have [Docker](https://www.docker.com/) installed in your local environmen
 included Dockerfile to build a Docker image that will run the WaniKani to Anki Exporter site
 on your system for development purposes.
 
-After building the image (assuming the naming convention `<image_name>:<image_tag>`), you can
-run the WaniKani to Anki Exporter site:
+### Without using Docker Compose
+
+- Build the image using the included Dockerfile:
+
+```
+$ docker build -t wanikani_to_anki .
+```
+
+After building the image you can run a container using the built image:
 
 ```
 docker run \
-  -p 9292:9292 \
+  -p 3000:3000 \
   -v $PWD:/app \
-  <image_name>:<image_tag>
+  wanikani_to_anki
 ```
 
-Alternatively, if you have [Docker Compose](https://docs.docker.com/compose/) installed, you
-can simply run `docker-compose up` to build and run
+You can go to http://localhost:3000 to see WaniKani to Anki Exporter up and running.
+
+### Using Docker Compose
+
+If you have [Docker Compose](https://docs.docker.com/compose/) installed, you
+can simply run `docker-compose up` to build the image and run the container.
 
 ## Why did I build this?
 
@@ -71,7 +76,3 @@ were looking for something similar, so I decided to share it as a website.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 6. That's it! High fives given upon request :smile_cat:
-
-## To run a single test
-
-Use rspec <path/to/spec.rbb>
