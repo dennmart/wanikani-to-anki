@@ -5,4 +5,4 @@ services:
     volumes:
       - .:/app
     ports:
-      - "9292:9292"
+      - "3000:3000"
