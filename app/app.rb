@@ -15,7 +15,6 @@ module Wkanki
     set :protect_from_csrf, false
 
     configure :production do
-      register Padrino::Contrib::Helpers::AssetsCompressor
       set :cache, Padrino::Cache.new(:Memcached, backend: Dalli::Client.new(ENV['MEMCACHED_URL']))
 
       Airbrake.configure do |config|
