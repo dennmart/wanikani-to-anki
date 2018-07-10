@@ -1,4 +1,4 @@
-FROM ruby:2.5.1-slim
+FROM ruby:2.5.1
 RUN apt-get update && apt-get -y install cmake
 
 COPY Gemfile* /app/
