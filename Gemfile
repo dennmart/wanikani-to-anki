@@ -9,10 +9,8 @@ gem 'padrino', '0.14.3'
 gem 'rake'
 gem 'sass', '~> 3.5.6'
 gem 'slim', '~> 3.0.9'
-gem 'padrino-contrib', '~> 0.2.0'
 gem 'puma', '~> 3.11.4'
 gem 'wanikani', '~> 2.0.0'
-gem 'yui-compressor', '~> 0.12.0', require: 'yui/compressor'
 
 group :test do
   gem 'capybara', '~> 3.3.1'
