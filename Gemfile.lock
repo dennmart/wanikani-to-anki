@@ -12,7 +12,7 @@ GEM
       airbrake-ruby (~> 2.10)
     airbrake-ruby (2.11.0)
     anki (0.0.4)
-    capybara (3.3.1)
+    capybara (3.4.2)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -72,11 +72,11 @@ GEM
       padrino-core (= 0.14.3)
     padrino-support (0.14.3)
     public_suffix (3.0.2)
-    puma (3.11.4)
+    puma (3.12.0)
     rack (2.0.5)
     rack-protection (2.0.3)
       rack
-    rack-test (1.0.0)
+    rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rake (12.3.1)
     rb-fsevent (0.10.3)
@@ -95,7 +95,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
-    sass (3.5.6)
+    sass (3.5.7)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -127,14 +127,14 @@ DEPENDENCIES
   activesupport (< 5)
   airbrake (~> 7.3.4)
   anki (= 0.0.4)
-  capybara (~> 3.3.1)
+  capybara (~> 3.4.2)
   dalli (~> 2.7.8)
   padrino (= 0.14.3)
-  puma (~> 3.11.4)
-  rack-test (~> 1.0.0)
+  puma (~> 3.12.0)
+  rack-test (~> 1.1.0)
   rake
   rspec (~> 3.7.0)
-  sass (~> 3.5.6)
+  sass (~> 3.5.7)
   slim (~> 3.0.9)
   wanikani (~> 2.0.0)
 
@@ -142,4 +142,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.2
+   1.16.3
