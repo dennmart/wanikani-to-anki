@@ -38,7 +38,7 @@ GEM
     moneta (1.0.0)
     multipart-post (2.0.0)
     mustermann (1.0.2)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
     padrino (0.14.3)
       padrino-admin (= 0.14.3)
@@ -73,7 +73,7 @@ GEM
     padrino-support (0.14.3)
     public_suffix (3.0.2)
     puma (3.12.0)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-protection (2.0.3)
       rack
     rack-test (1.1.0)
