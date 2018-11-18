@@ -11,7 +11,7 @@ You will need a WaniKani API key to see all the functionality built in.
 
 ## Prerequisites
 
-- Install [Ruby 2.5.1](https://www.ruby-lang.org/en/).
+- Install [Ruby 2.5.3](https://www.ruby-lang.org/en/).
 - Install [Bundler](http://bundler.io/) (`gem install bundler`).
 
 ## How to run the website

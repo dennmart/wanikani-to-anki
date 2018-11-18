@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '2.5.3'
 
 gem 'activesupport', '< 5'
 gem 'airbrake', '~> 7.3.4'
