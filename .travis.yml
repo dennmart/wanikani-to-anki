@@ -1,7 +1,7 @@
 sudo: false
 language: ruby
 rvm:
-  - 2.5.1
+  - 2.5.3
 services:
   - memcached
 before_install:
