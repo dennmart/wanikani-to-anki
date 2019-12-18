@@ -33,13 +33,14 @@ GEM
       mini_mime (>= 0.1.1)
     mime-types (2.99.3)
     mini_mime (1.0.0)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     minitest (5.11.3)
     moneta (1.0.0)
     multipart-post (2.0.0)
     mustermann (1.0.2)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nio4r (2.5.2)
+    nokogiri (1.10.7)
+      mini_portile2 (~> 2.4.0)
     padrino (0.14.3)
       padrino-admin (= 0.14.3)
       padrino-cache (= 0.14.3)
@@ -72,7 +73,8 @@ GEM
       padrino-core (= 0.14.3)
     padrino-support (0.14.3)
     public_suffix (3.0.2)
-    puma (3.12.0)
+    puma (4.3.1)
+      nio4r (~> 2.0)
     rack (2.0.6)
     rack-protection (2.0.3)
       rack
@@ -133,7 +135,7 @@ DEPENDENCIES
   capybara (~> 3.4.2)
   dalli (~> 2.7.8)
   padrino (= 0.14.3)
-  puma (~> 3.12.0)
+  puma (~> 4.3.1)
   rack-test (~> 1.1.0)
   rake
   rspec (~> 3.7.0)
@@ -145,4 +147,4 @@ RUBY VERSION
    ruby 2.5.3p105
 
 BUNDLED WITH
-   1.17.1
+   1.17.3
