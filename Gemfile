@@ -9,7 +9,7 @@ gem 'padrino', '0.14.3'
 gem 'rake'
 gem 'sassc', '~> 1.12.1'
 gem 'slim', '~> 3.0.9'
-gem 'puma', '~> 4.3.1'
+gem 'puma', '~> 4.3.5'
 gem 'wanikani', '~> 2.0.0'
 
 group :test do
