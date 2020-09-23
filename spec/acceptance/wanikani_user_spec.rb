@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'WaniKani User' do
   let(:valid_api_key) { 'fe1d61e66c3a8421db3b8fdbff4fa522' } # koichi's API key, as given in the WaniKani forums.
 
-  describe 'Logging in' do
+  xdescribe 'Logging in' do
     before(:each) do
       visit '/'
     end
@@ -21,7 +21,7 @@ describe 'WaniKani User' do
     end
   end
 
-  describe 'Logging out' do
+  xdescribe 'Logging out' do
     it "should log out successfully when clicking on the 'Not <username>?' page" do
       visit '/'
       fill_in 'wanikani_api_key', with: valid_api_key
