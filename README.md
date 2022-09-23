@@ -1,6 +1,10 @@
 # WaniKani to Anki Exporter
 
-#### Get your WaniKani decks in Anki!
+## ⚠️ Note: This project is no longer maintained
+
+The WaniKani to Anki app is based on the now-deprecated WaniKani API v1 and is no longer maintained. If you're interested in taking over this project and upgrade the application to work with the latest version of WaniKani's API, please send me a message on Twitter ([@dennmart](https://twitter.com/dennmart)).
+
+---
 
 WaniKani to Anki Exporter is a small website that allows you to easily fetch data from your
 [WaniKani](https://www.wanikani.com/) account and generate a file that can be imported
